@@ -6,13 +6,13 @@
 //  Copyright © 2016年 OneYear. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AllLicensesViewController.h"
 
-@interface ViewController ()
+@interface AllLicensesViewController ()
 
 @end
 
-@implementation ViewController
+@implementation AllLicensesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

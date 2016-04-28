@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		2CD58AC01CD0A54400A96899 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58ABF1CD0A54400A96899 /* main.m */; };
 		2CD58AC31CD0A54400A96899 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58AC21CD0A54400A96899 /* AppDelegate.m */; };
-		2CD58AC61CD0A54400A96899 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58AC51CD0A54400A96899 /* ViewController.m */; };
+		2CD58AC61CD0A54400A96899 /* AllLicensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58AC51CD0A54400A96899 /* AllLicensesViewController.m */; };
 		2CD58AC91CD0A54400A96899 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD58AC71CD0A54400A96899 /* Main.storyboard */; };
 		2CD58ACB1CD0A54400A96899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CD58ACA1CD0A54400A96899 /* Assets.xcassets */; };
 		2CD58ACE1CD0A54400A96899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD58ACC1CD0A54400A96899 /* LaunchScreen.storyboard */; };
 		2CD58AD91CD0A54400A96899 /* _______Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58AD81CD0A54400A96899 /* _______Tests.m */; };
 		2CD58AE41CD0A54400A96899 /* _______UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58AE31CD0A54400A96899 /* _______UITests.m */; };
+		2CD58AF31CD2149100A96899 /* HomeTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58AF21CD2149100A96899 /* HomeTipsViewController.m */; };
+		2CD58AF61CD216F400A96899 /* DetailTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58AF51CD216F400A96899 /* DetailTipsViewController.m */; };
+		2CD58AF91CD2185700A96899 /* LicenseDetailsTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58AF81CD2185700A96899 /* LicenseDetailsTableTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +42,8 @@
 		2CD58ABF1CD0A54400A96899 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CD58AC11CD0A54400A96899 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2CD58AC21CD0A54400A96899 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2CD58AC41CD0A54400A96899 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2CD58AC51CD0A54400A96899 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2CD58AC41CD0A54400A96899 /* AllLicensesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllLicensesViewController.h; sourceTree = "<group>"; };
+		2CD58AC51CD0A54400A96899 /* AllLicensesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllLicensesViewController.m; sourceTree = "<group>"; };
 		2CD58AC81CD0A54400A96899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CD58ACA1CD0A54400A96899 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CD58ACD1CD0A54400A96899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +54,12 @@
 		2CD58ADF1CD0A54400A96899 /* 深圳预售许可证UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "深圳预售许可证UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD58AE31CD0A54400A96899 /* _______UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_______UITests.m"; sourceTree = "<group>"; };
 		2CD58AE51CD0A54400A96899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CD58AF11CD2149100A96899 /* HomeTipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTipsViewController.h; sourceTree = "<group>"; };
+		2CD58AF21CD2149100A96899 /* HomeTipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTipsViewController.m; sourceTree = "<group>"; };
+		2CD58AF41CD216F400A96899 /* DetailTipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTipsViewController.h; sourceTree = "<group>"; };
+		2CD58AF51CD216F400A96899 /* DetailTipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTipsViewController.m; sourceTree = "<group>"; };
+		2CD58AF71CD2185700A96899 /* LicenseDetailsTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseDetailsTableTableViewController.h; sourceTree = "<group>"; };
+		2CD58AF81CD2185700A96899 /* LicenseDetailsTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseDetailsTableTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +112,16 @@
 			children = (
 				2CD58AC11CD0A54400A96899 /* AppDelegate.h */,
 				2CD58AC21CD0A54400A96899 /* AppDelegate.m */,
-				2CD58AC41CD0A54400A96899 /* ViewController.h */,
-				2CD58AC51CD0A54400A96899 /* ViewController.m */,
+				2CD58AC41CD0A54400A96899 /* AllLicensesViewController.h */,
+				2CD58AC51CD0A54400A96899 /* AllLicensesViewController.m */,
 				2CD58AC71CD0A54400A96899 /* Main.storyboard */,
 				2CD58ACA1CD0A54400A96899 /* Assets.xcassets */,
+				2CD58AF71CD2185700A96899 /* LicenseDetailsTableTableViewController.h */,
+				2CD58AF81CD2185700A96899 /* LicenseDetailsTableTableViewController.m */,
+				2CD58AF11CD2149100A96899 /* HomeTipsViewController.h */,
+				2CD58AF21CD2149100A96899 /* HomeTipsViewController.m */,
+				2CD58AF41CD216F400A96899 /* DetailTipsViewController.h */,
+				2CD58AF51CD216F400A96899 /* DetailTipsViewController.m */,
 				2CD58ACC1CD0A54400A96899 /* LaunchScreen.storyboard */,
 				2CD58ACF1CD0A54400A96899 /* Info.plist */,
 				2CD58ABE1CD0A54400A96899 /* Supporting Files */,
@@ -270,9 +285,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CD58AC61CD0A54400A96899 /* ViewController.m in Sources */,
+				2CD58AC61CD0A54400A96899 /* AllLicensesViewController.m in Sources */,
 				2CD58AC31CD0A54400A96899 /* AppDelegate.m in Sources */,
 				2CD58AC01CD0A54400A96899 /* main.m in Sources */,
+				2CD58AF91CD2185700A96899 /* LicenseDetailsTableTableViewController.m in Sources */,
+				2CD58AF61CD216F400A96899 /* DetailTipsViewController.m in Sources */,
+				2CD58AF31CD2149100A96899 /* HomeTipsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +514,7 @@
 				2CD58AEA1CD0A54400A96899 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CD58AEB1CD0A54400A96899 /* Build configuration list for PBXNativeTarget "深圳预售许可证Tests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +523,7 @@
 				2CD58AED1CD0A54400A96899 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CD58AEE1CD0A54400A96899 /* Build configuration list for PBXNativeTarget "深圳预售许可证UITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +532,7 @@
 				2CD58AF01CD0A54400A96899 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
