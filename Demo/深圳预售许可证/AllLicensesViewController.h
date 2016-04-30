@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "License.h"
 
 @interface AllLicensesViewController : UITableViewController
 
@@ -17,8 +16,6 @@
 //@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 //@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 //@property (weak, nonatomic) IBOutlet UILabel *quantityLabel;
-
-@property (nonatomic, strong) License *license;
 
 @end
 
