@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LicenseDetailsTableTableViewController : UITableViewController
+@interface LicenseDetailsViewController : UITableViewController
 
 - (IBAction)back:(id)sender;
 
