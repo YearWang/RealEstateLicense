@@ -10,6 +10,8 @@
 
 @interface LicenseDetailsViewController : UITableViewController
 
+
+
 - (IBAction)back:(id)sender;
 
 @end

@@ -1,8 +1,8 @@
 //
-//  DetailedPriceListViewControllerTableViewController.m
+//  DetailedPriceListViewController.m
 //  深圳预售许可证
 //
-//  Created by 王岩 on 16/4/30.
+//  Created by 王岩 on 16/5/1.
 //  Copyright © 2016年 OneYear. All rights reserved.
 //
 
@@ -29,19 +29,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Incomplete implementation, return the number of sections
+    return 0;
+}
 
-/*
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete implementation, return the number of rows
+    return 0;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
@@ -99,5 +100,4 @@
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
-
 @end

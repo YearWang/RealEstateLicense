@@ -11,9 +11,12 @@
 @interface LicenseDetail : NSObject
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *licenseKey;
-@property (nonatomic, copy) NSString *company;
+
 @property (nonatomic, copy) NSString *location;
+@property (nonatomic, copy) NSString *company;
+
+
+@property (nonatomic, copy) NSString *licenseKey;
 
 @property (nonatomic, copy) NSDate *date;
 

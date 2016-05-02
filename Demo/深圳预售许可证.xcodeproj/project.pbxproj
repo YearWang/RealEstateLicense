@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C6152611CD30F43003D621D /* License.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6152601CD30F43003D621D /* License.m */; };
-		2C6152641CD4587D003D621D /* DetailedPriceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6152631CD4587D003D621D /* DetailedPriceListViewController.m */; };
 		2C6152671CD4A5FA003D621D /* LicenseDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6152661CD4A5FA003D621D /* LicenseDetail.m */; };
+		2C61526A1CD5E3A4003D621D /* DetailedPriceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6152691CD5E3A4003D621D /* DetailedPriceListViewController.m */; };
 		2CD58AC01CD0A54400A96899 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58ABF1CD0A54400A96899 /* main.m */; };
 		2CD58AC31CD0A54400A96899 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58AC21CD0A54400A96899 /* AppDelegate.m */; };
 		2CD58AC61CD0A54400A96899 /* AllLicensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD58AC51CD0A54400A96899 /* AllLicensesViewController.m */; };
@@ -43,10 +43,10 @@
 /* Begin PBXFileReference section */
 		2C61525F1CD30F43003D621D /* License.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = License.h; sourceTree = "<group>"; };
 		2C6152601CD30F43003D621D /* License.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = License.m; sourceTree = "<group>"; };
-		2C6152621CD4587D003D621D /* DetailedPriceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailedPriceListViewController.h; path = ../DetailedPriceListViewController.h; sourceTree = "<group>"; };
-		2C6152631CD4587D003D621D /* DetailedPriceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailedPriceListViewController.m; path = ../DetailedPriceListViewController.m; sourceTree = "<group>"; };
 		2C6152651CD4A5FA003D621D /* LicenseDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseDetail.h; sourceTree = "<group>"; };
 		2C6152661CD4A5FA003D621D /* LicenseDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseDetail.m; sourceTree = "<group>"; };
+		2C6152681CD5E3A4003D621D /* DetailedPriceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedPriceListViewController.h; sourceTree = "<group>"; };
+		2C6152691CD5E3A4003D621D /* DetailedPriceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedPriceListViewController.m; sourceTree = "<group>"; };
 		2CD58ABB1CD0A54400A96899 /* 深圳预售许可证.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "深圳预售许可证.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD58ABF1CD0A54400A96899 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CD58AC11CD0A54400A96899 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -129,10 +129,10 @@
 				2C6152661CD4A5FA003D621D /* LicenseDetail.m */,
 				2CD58AF71CD2185700A96899 /* LicenseDetailsViewController.h */,
 				2CD58AF81CD2185700A96899 /* LicenseDetailsViewController.m */,
+				2C6152681CD5E3A4003D621D /* DetailedPriceListViewController.h */,
+				2C6152691CD5E3A4003D621D /* DetailedPriceListViewController.m */,
 				2CD58ACA1CD0A54400A96899 /* Assets.xcassets */,
 				2CD58AC71CD0A54400A96899 /* Main.storyboard */,
-				2C6152621CD4587D003D621D /* DetailedPriceListViewController.h */,
-				2C6152631CD4587D003D621D /* DetailedPriceListViewController.m */,
 				2CD58AF11CD2149100A96899 /* HomeTipsViewController.h */,
 				2CD58AF21CD2149100A96899 /* HomeTipsViewController.m */,
 				2CD58AF41CD216F400A96899 /* DetailTipsViewController.h */,
@@ -300,9 +300,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C6152641CD4587D003D621D /* DetailedPriceListViewController.m in Sources */,
 				2CD58AC61CD0A54400A96899 /* AllLicensesViewController.m in Sources */,
 				2CD58AC31CD0A54400A96899 /* AppDelegate.m in Sources */,
+				2C61526A1CD5E3A4003D621D /* DetailedPriceListViewController.m in Sources */,
 				2CD58AC01CD0A54400A96899 /* main.m in Sources */,
 				2CD58AF91CD2185700A96899 /* LicenseDetailsViewController.m in Sources */,
 				2CD58AF61CD216F400A96899 /* DetailTipsViewController.m in Sources */,
