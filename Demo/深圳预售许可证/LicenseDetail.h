@@ -17,10 +17,12 @@
 
 
 @property (nonatomic, copy) NSString *licenseKey;
-
 @property (nonatomic, copy) NSDate *date;
+@property (nonatomic, copy) NSString *grossArea;
+@property (nonatomic, copy) NSString *numberOfBuildings;
 
-@property (nonatomic, assign) NSUInteger price;
-@property (nonatomic, assign) NSUInteger quantity;
+@property (nonatomic, strong) NSMutableArray *types;
+@property (nonatomic, strong) NSMutableArray *areas;
+@property (nonatomic, strong) NSMutableArray *households;
 
 @end
