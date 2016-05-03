@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C2E69D71CD849C1002ADBCA /* BuildingDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E69D61CD849C1002ADBCA /* BuildingDetail.m */; };
 		2C6152611CD30F43003D621D /* License.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6152601CD30F43003D621D /* License.m */; };
 		2C6152671CD4A5FA003D621D /* LicenseDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6152661CD4A5FA003D621D /* LicenseDetail.m */; };
 		2C61526A1CD5E3A4003D621D /* DetailedPriceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6152691CD5E3A4003D621D /* DetailedPriceListViewController.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C2E69D51CD849C1002ADBCA /* BuildingDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingDetail.h; sourceTree = "<group>"; };
+		2C2E69D61CD849C1002ADBCA /* BuildingDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingDetail.m; sourceTree = "<group>"; };
 		2C61525F1CD30F43003D621D /* License.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = License.h; sourceTree = "<group>"; };
 		2C6152601CD30F43003D621D /* License.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = License.m; sourceTree = "<group>"; };
 		2C6152651CD4A5FA003D621D /* LicenseDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseDetail.h; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				2C6152661CD4A5FA003D621D /* LicenseDetail.m */,
 				2CD58AF71CD2185700A96899 /* LicenseDetailsViewController.h */,
 				2CD58AF81CD2185700A96899 /* LicenseDetailsViewController.m */,
+				2C2E69D51CD849C1002ADBCA /* BuildingDetail.h */,
+				2C2E69D61CD849C1002ADBCA /* BuildingDetail.m */,
 				2C6152681CD5E3A4003D621D /* DetailedPriceListViewController.h */,
 				2C6152691CD5E3A4003D621D /* DetailedPriceListViewController.m */,
 				2CD58ACA1CD0A54400A96899 /* Assets.xcassets */,
@@ -308,6 +313,7 @@
 				2CD58AF61CD216F400A96899 /* DetailTipsViewController.m in Sources */,
 				2C6152671CD4A5FA003D621D /* LicenseDetail.m in Sources */,
 				2C6152611CD30F43003D621D /* License.m in Sources */,
+				2C2E69D71CD849C1002ADBCA /* BuildingDetail.m in Sources */,
 				2CD58AF31CD2149100A96899 /* HomeTipsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

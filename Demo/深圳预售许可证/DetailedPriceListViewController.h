@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class License;
 
 @interface DetailedPriceListViewController : UITableViewController
+
+@property (nonatomic, strong) License *license;
 
 - (IBAction)back:(id)sender;
 

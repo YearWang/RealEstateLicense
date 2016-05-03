@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface License : NSObject
+@interface License : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *district;

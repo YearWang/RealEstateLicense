@@ -7,6 +7,8 @@
 //
 
 #import "DetailedPriceListViewController.h"
+#import "BuildingDetail.h"
+#import "License.h"
 
 @interface DetailedPriceListViewController ()
 
@@ -14,14 +16,40 @@
 
 @implementation DetailedPriceListViewController
 
+{
+    NSMutableArray *_buildings;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        _buildings = [[NSMutableArray alloc] initWithCapacity:20];
+        
+        BuildingDetail *building;
+        
+        building = [[BuildingDetail alloc] init];
+        building.buildingName = @"1栋";
+        building.buildingNumber = @"[5号楼A]";
+        building.buildingMainType = @"住宅";
+        building.buildingHouseholdings = 268;
+        building.buildingPrice = 54877;
+        [_buildings addObject:building];
+        
+        building = [[BuildingDetail alloc] init];
+        building.buildingName= @"5栋";
+        building.buildingNumber = @"[3号楼B]";
+        building.buildingMainType = @"商务公寓";
+        building.buildingHouseholdings = 1256;
+        building.buildingPrice = 102568;
+        [_buildings addObject:building];
+
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = self.license.name;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,24 +57,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 1;
-//}
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [_buildings count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuildingPriceCell"];
+    
+    BuildingDetail *building = _buildings[indexPath.row];
+    
+    UILabel *nameLabel = (UILabel *)[cell viewWithTag:11];
+    UILabel *mainTypeAndHouseholdingsLabel = (UILabel *)[cell viewWithTag:12];
+    UILabel *priceLabel = (UILabel *)[cell viewWithTag:13];
+    
+    nameLabel.text = [NSString stringWithFormat:@"%@-%@",building.buildingName,building.buildingNumber];
+    mainTypeAndHouseholdingsLabel.text = [NSString stringWithFormat:@"%@:%lu套",building.buildingMainType,building.buildingHouseholdings];
+    priceLabel.text = [NSString stringWithFormat:@"%lu",building.buildingPrice];
     
     return cell;
 }

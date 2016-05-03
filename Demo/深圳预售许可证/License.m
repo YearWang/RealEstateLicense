@@ -10,4 +10,29 @@
 
 @implementation License
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        self.name = [aDecoder decodeObjectForKey:@"Name"];
+        self.district = [aDecoder decodeObjectForKey:@"District"];
+        self.date = [aDecoder decodeObjectForKey:@"Date"];
+        self.company = [aDecoder decodeObjectForKey:@"Company"];
+        self.price = [aDecoder decodeIntegerForKey:@"Price"];
+        self.quantity = [aDecoder decodeIntegerForKey:@"Quantity"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"Name"];
+    [aCoder encodeObject:self.district forKey:@"District"];
+    [aCoder encodeObject:self.date forKey:@"Date"];
+    [aCoder encodeObject:self.company forKey:@"Company"];
+    [aCoder encodeInteger:self.price forKey:@"Price"];
+    [aCoder encodeInteger:self.quantity forKey:@"Quantity"];
+}
+
+
+
 @end

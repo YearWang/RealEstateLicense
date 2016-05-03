@@ -7,6 +7,7 @@
 //
 
 #import "AllLicensesViewController.h"
+#import "DetailedPriceListViewController.h"
 #import "License.h"
 
 @interface AllLicensesViewController ()
@@ -18,10 +19,36 @@
     NSMutableArray *_licenses;
 }
 
+- (void)loadLicenses
+{
+    NSString *path = [self dataFilePath];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+    
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        _licenses = [unarchiver decodeObjectForKey:@"Licenses"];
+        [unarchiver finishDecoding];
+        
+    }else{
+        
+        _licenses = [[NSMutableArray alloc] initWithCapacity:20];
+    }
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self loadLicenses];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    _licenses = [[NSMutableArray alloc] initWithCapacity:10];
+    
+    /*
+    _licenses = [[NSMutableArray alloc] initWithCapacity:20];
     
     License *license;
     
@@ -42,7 +69,28 @@
     license.price = 12345;
     license.quantity = 380;
     [_licenses addObject:license];
-    
+     */
+}
+
+- (NSString *)documentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    return documentsDirectory;
+}
+
+- (NSString *)dataFilePath
+{
+    return [[self documentsDirectory] stringByAppendingPathComponent:@"License.plist"];
+}
+
+- (void)saveLicenses
+{
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:_licenses forKey:@"Licenses"];
+    [archiver finishEncoding];
+    [data writeToFile:[self dataFilePath] atomically:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,9 +98,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table view data source
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return [_licenses count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,13 +133,25 @@
     priceLabel.text = [NSString stringWithFormat:@"%ld",license.price];
     quantityLabel.text = [NSString stringWithFormat:@"%ld",license.quantity];
 
-    //@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-    //@property (weak, nonatomic) IBOutlet UILabel *districtLabel;
-    //@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-    //@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
-    //@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-    //@property (weak, nonatomic) IBOutlet UILabel *quantityLabel;
+    [self saveLicenses];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    License *license = _licenses[indexPath.row];
+    [self performSegueWithIdentifier:@"ShowBuildingPrice" sender:license];
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowBuildingPrice"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        DetailedPriceListViewController *controller = (DetailedPriceListViewController *) navigationController.topViewController;
+        controller.license = sender;
+    }
 }
 
 @end
