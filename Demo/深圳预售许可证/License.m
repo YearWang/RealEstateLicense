@@ -10,6 +10,14 @@
 
 @implementation License
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.buildings = [[NSMutableArray alloc] initWithCapacity:20];
+    }
+    return self;
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
@@ -19,6 +27,7 @@
         self.company = [aDecoder decodeObjectForKey:@"Company"];
         self.price = [aDecoder decodeIntegerForKey:@"Price"];
         self.quantity = [aDecoder decodeIntegerForKey:@"Quantity"];
+        self.buildings = [aDecoder decodeObjectForKey:@"Buildings"];
     }
     return self;
 }
@@ -31,6 +40,7 @@
     [aCoder encodeObject:self.company forKey:@"Company"];
     [aCoder encodeInteger:self.price forKey:@"Price"];
     [aCoder encodeInteger:self.quantity forKey:@"Quantity"];
+    [aCoder encodeObject:self.buildings forKey:@"Buildings"];
 }
 
 

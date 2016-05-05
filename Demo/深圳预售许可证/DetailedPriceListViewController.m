@@ -16,36 +16,40 @@
 
 @implementation DetailedPriceListViewController
 
-{
-    NSMutableArray *_buildings;
-}
+//- (instancetype)initWithCoder:(NSCoder *)aDecoder
+//{
+//    if (self = [super initWithCoder:aDecoder]) {
+//        [self loadBuildingDetails];
+//    }
+//    return self;
+//}
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    if (self = [super initWithCoder:aDecoder]) {
-        _buildings = [[NSMutableArray alloc] initWithCapacity:20];
-        
-        BuildingDetail *building;
-        
-        building = [[BuildingDetail alloc] init];
-        building.buildingName = @"1栋";
-        building.buildingNumber = @"[5号楼A]";
-        building.buildingMainType = @"住宅";
-        building.buildingHouseholdings = 268;
-        building.buildingPrice = 54877;
-        [_buildings addObject:building];
-        
-        building = [[BuildingDetail alloc] init];
-        building.buildingName= @"5栋";
-        building.buildingNumber = @"[3号楼B]";
-        building.buildingMainType = @"商务公寓";
-        building.buildingHouseholdings = 1256;
-        building.buildingPrice = 102568;
-        [_buildings addObject:building];
-
-    }
-    return self;
-}
+//- (instancetype)initWithCoder:(NSCoder *)aDecoder
+//{
+//    if (self = [super initWithCoder:aDecoder]) {
+//        _buildings = [[NSMutableArray alloc] initWithCapacity:20];
+//        
+//        BuildingDetail *building;
+//        
+//        building = [[BuildingDetail alloc] init];
+//        building.buildingName = @"1栋";
+//        building.buildingNumber = @"[5号楼A]";
+//        building.buildingMainType = @"住宅";
+//        building.buildingHouseholdings = 268;
+//        building.buildingPrice = 54877;
+//        [_buildings addObject:building];
+//        
+//        building = [[BuildingDetail alloc] init];
+//        building.buildingName= @"5栋";
+//        building.buildingNumber = @"[3号楼B]";
+//        building.buildingMainType = @"商务公寓";
+//        building.buildingHouseholdings = 1256;
+//        building.buildingPrice = 102568;
+//        [_buildings addObject:building];
+//
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,14 +65,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_buildings count];
+    return [self.license.buildings count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuildingPriceCell"];
     
-    BuildingDetail *building = _buildings[indexPath.row];
+    BuildingDetail *building = self.license.buildings[indexPath.row];
     
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:11];
     UILabel *mainTypeAndHouseholdingsLabel = (UILabel *)[cell viewWithTag:12];

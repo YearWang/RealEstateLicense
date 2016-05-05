@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BuildingDetail : NSObject
+@interface BuildingDetail : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *buildingName;
 @property (nonatomic, copy) NSString *buildingNumber;

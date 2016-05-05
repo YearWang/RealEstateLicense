@@ -9,88 +9,23 @@
 #import "AllLicensesViewController.h"
 #import "DetailedPriceListViewController.h"
 #import "License.h"
+#import "BuildingDetail.h"
+#import "DateModel.h"
 
 @interface AllLicensesViewController ()
 
 @end
 
 @implementation AllLicensesViewController
-{
-    NSMutableArray *_licenses;
-}
 
-- (void)loadLicenses
-{
-    NSString *path = [self dataFilePath];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-    
-        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-        _licenses = [unarchiver decodeObjectForKey:@"Licenses"];
-        [unarchiver finishDecoding];
-        
-    }else{
-        
-        _licenses = [[NSMutableArray alloc] initWithCapacity:20];
-    }
-}
+#pragma mark - 数据加载和保存
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    if (self = [super initWithCoder:aDecoder]) {
-        [self loadLicenses];
-    }
-    return self;
-}
+
+#pragma maik - init初始化
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    /*
-    _licenses = [[NSMutableArray alloc] initWithCapacity:20];
-    
-    License *license;
-    
-    license = [[License alloc] init];
-    license.name = @"中骏蓝湾翠岭花园一期";
-    license.district = @"龙岗";
-    license.date = [NSDate date];
-    license.company = @"深圳泛亚房地产开发有限公司";
-    license.price = 34521;
-    license.quantity = 1450;
-    [_licenses addObject:license];
-    
-    license = [[License alloc] init];
-    license.name = @"佳兆业中央广场三期";
-    license.district = @"龙岗";
-    license.date = [NSDate date];
-    license.company = @"宝吉工艺品（深圳）有限公司";
-    license.price = 12345;
-    license.quantity = 380;
-    [_licenses addObject:license];
-     */
-}
-
-- (NSString *)documentsDirectory
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    return documentsDirectory;
-}
-
-- (NSString *)dataFilePath
-{
-    return [[self documentsDirectory] stringByAppendingPathComponent:@"License.plist"];
-}
-
-- (void)saveLicenses
-{
-    NSMutableData *data = [[NSMutableData alloc] init];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [archiver encodeObject:_licenses forKey:@"Licenses"];
-    [archiver finishEncoding];
-    [data writeToFile:[self dataFilePath] atomically:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,14 +37,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_licenses count];
+    return [self.dataModel.licenses count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LicenseCell"];
     
-    License *license = _licenses[indexPath.row];
+    License *license = self.dataModel.licenses[indexPath.row];
     
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
     UILabel *districtLabel = (UILabel *)[cell viewWithTag:2];
@@ -133,15 +68,14 @@
     priceLabel.text = [NSString stringWithFormat:@"%ld",license.price];
     quantityLabel.text = [NSString stringWithFormat:@"%ld",license.quantity];
 
-    [self saveLicenses];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    License *license = _licenses[indexPath.row];
-    [self performSegueWithIdentifier:@"ShowBuildingPrice" sender:license];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    License *license = _licenses[indexPath.row];
+//    [self performSegueWithIdentifier:@"ShowBuildingPrice" sender:license];
+//}
 
 #pragma mark - Segue
 
@@ -150,7 +84,8 @@
     if ([segue.identifier isEqualToString:@"ShowBuildingPrice"]) {
         UINavigationController *navigationController = segue.destinationViewController;
         DetailedPriceListViewController *controller = (DetailedPriceListViewController *) navigationController.topViewController;
-        controller.license = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        controller.license = self.dataModel.licenses[indexPath.row];
     }
 }
 

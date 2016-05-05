@@ -7,15 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DateModel;
 
 @interface AllLicensesViewController : UITableViewController
 
-//@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *districtLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *quantityLabel;
+@property (nonatomic, strong) DateModel *dataModel;
 
 @end
 

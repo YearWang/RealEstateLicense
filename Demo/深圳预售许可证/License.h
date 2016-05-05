@@ -18,4 +18,6 @@
 @property (nonatomic, assign) NSUInteger price;
 @property (nonatomic, assign) NSUInteger quantity;
 
+@property (nonatomic, strong) NSMutableArray *buildings;
+
 @end
