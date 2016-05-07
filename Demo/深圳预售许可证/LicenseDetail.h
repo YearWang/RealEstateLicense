@@ -17,7 +17,7 @@
 
 
 @property (nonatomic, copy) NSString *licenseKey;
-@property (nonatomic, copy) NSDate *date;
+@property (nonatomic, copy) NSString *date;
 @property (nonatomic, copy) NSString *grossArea;
 @property (nonatomic, copy) NSString *numberOfBuildings;
 

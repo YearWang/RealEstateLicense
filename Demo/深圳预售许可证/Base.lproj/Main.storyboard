@@ -237,7 +237,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="pwx-Kk-jYu"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -280,7 +280,9 @@
                                         <constraint firstItem="mQ0-GV-OZq" firstAttribute="top" secondItem="fTR-5l-W2D" secondAttribute="bottom" constant="19" id="Icl-zt-ptJ">
                                             <variation key="widthClass=compact" constant="17"/>
                                         </constraint>
-                                        <constraint firstItem="mQ0-GV-OZq" firstAttribute="trailing" secondItem="xtE-I4-5qr" secondAttribute="trailingMargin" id="LpQ-g8-Q40"/>
+                                        <constraint firstItem="mQ0-GV-OZq" firstAttribute="trailing" secondItem="xtE-I4-5qr" secondAttribute="trailingMargin" id="LpQ-g8-Q40">
+                                            <variation key="widthClass=compact" constant="8"/>
+                                        </constraint>
                                         <constraint firstItem="T3N-Qa-KVJ" firstAttribute="leading" secondItem="xtE-I4-5qr" secondAttribute="leadingMargin" constant="21" id="MUj-qe-eKf">
                                             <variation key="widthClass=compact" constant="27"/>
                                         </constraint>
@@ -437,7 +439,7 @@
                                                 <constraint firstAttribute="width" constant="259" id="PL3-0d-HlI"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">

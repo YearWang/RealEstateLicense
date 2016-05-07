@@ -59,11 +59,11 @@
     districtLabel.text = [NSString stringWithFormat:@"所在区域:%@",license.district];
     
     //转换日期格式
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-mm-dd"];
-    NSString *dateString = [dateFormatter stringFromDate:license.date];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yyyy-mm-dd"];
+//    NSString *dateString = [dateFormatter stringFromDate:license.date];
     
-    dateLabel.text = [NSString stringWithFormat:@"批准时间:%@",dateString];
+    dateLabel.text = [NSString stringWithFormat:@"批准时间:%@",license.date];
     companyLabel.text = [NSString stringWithFormat:@"开发企业:%@",license.company];
     priceLabel.text = [NSString stringWithFormat:@"%ld",license.price];
     quantityLabel.text = [NSString stringWithFormat:@"%ld",license.quantity];

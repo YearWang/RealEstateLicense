@@ -8,6 +8,7 @@
 
 #import "DateModel.h"
 #import "License.h"
+#import "licensesDownload.h"
 
 @implementation DateModel
 
@@ -36,6 +37,7 @@
 
 - (void)loadLicenses
 {
+    //NSLog(@"%@",[self dataFilePath]);
     NSString *path = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSData *data = [[NSData alloc] initWithContentsOfFile:path];
@@ -43,28 +45,40 @@
         self.licenses = [unarchiver decodeObjectForKey:@"Licenses"];
         [unarchiver finishDecoding];
     }else{
-        self.licenses = [[NSMutableArray alloc] initWithCapacity:20];
+        self.licenses = [[NSMutableArray alloc] init];
+        License *license;
         
-            License *license;
-        
+        NSMutableArray *originalArray = [licensesDownload getAllLicenses];
+        for (licensesDownload *originalLicense in originalArray) {
             license = [[License alloc] init];
-            license.name = @"中骏蓝湾翠岭花园一期";
-            license.district = @"龙岗";
-            license.date = [NSDate date];
-            license.company = @"深圳泛亚房地产开发有限公司";
-            license.price = 34521;
-            license.quantity = 1450;
+            license.name = originalLicense.name;
+            license.district = originalLicense.district;
+            license.date = originalLicense.date;
+            license.company = originalLicense.company;
+            
+            NSMutableArray *licenseDetail = [originalLicense getLicenseDetailFromDetailUrl:originalLicense.detailUrl];
+            
             [self.licenses addObject:license];
+        }
         
-            license = [[License alloc] init];
-            license.name = @"佳兆业中央广场三期";
-            license.district = @"龙岗";
-            license.date = [NSDate date];
-            license.company = @"宝吉工艺品（深圳）有限公司";
-            license.price = 12345;
-            license.quantity = 380;
-            [self.licenses addObject:license];
-            [self saveLicenses];
+//            license = [[License alloc] init];
+//            license.name = @"中骏蓝湾翠岭花园一期";
+//            license.district = @"龙岗";
+//            license.date = @"2016-04-29";
+//            license.company = @"深圳泛亚房地产开发有限公司";
+//            license.price = 34521;
+//            license.quantity = 1450;
+//            [self.licenses addObject:license];
+//        
+//            license = [[License alloc] init];
+//            license.name = @"佳兆业中央广场三期";
+//            license.district = @"龙岗";
+//            license.date = @"2016-04-12";
+//            license.company = @"宝吉工艺品（深圳）有限公司";
+//            license.price = 12345;
+//            license.quantity = 380;
+//            [self.licenses addObject:license];
+//            [self saveLicenses];
         
         //    for (License *license in _licenses) {
         //        BuildingDetail *building1 = [[BuildingDetail alloc] init];

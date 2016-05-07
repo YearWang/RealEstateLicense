@@ -12,12 +12,13 @@
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *district;
-@property (nonatomic, copy) NSDate *date;
+@property (nonatomic, copy) NSString *date;
 @property (nonatomic, copy) NSString *company;
 
 @property (nonatomic, assign) NSUInteger price;
 @property (nonatomic, assign) NSUInteger quantity;
 
 @property (nonatomic, strong) NSMutableArray *buildings;
+@property (nonatomic, strong) NSMutableArray *licenseDetail;
 
 @end
