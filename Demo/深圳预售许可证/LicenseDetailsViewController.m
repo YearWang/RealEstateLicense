@@ -7,6 +7,9 @@
 //
 
 #import "LicenseDetailsViewController.h"
+#import "License.h"
+#import "TypeInLicense.h"
+
 
 @interface LicenseDetailsViewController ()
 
@@ -16,7 +19,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = self.license.name;
+    
+    self.locationLabel.text =[NSString stringWithFormat:@"位    置：%@",self.license.licenseDetail.location];
+    self.companyLabel.text = [NSString stringWithFormat:@"开发商：%@",self.license.licenseDetail.company];
+    self.licenseKeyLabel.text = [NSString stringWithFormat:@"许可证号：%@",self.license.licenseDetail.licenseKey];
+    self.dateLabel.text = [NSString stringWithFormat:@"发证日期：%@",self.license.licenseDetail.date];
+    self.grossAreaLabel.text = [NSString stringWithFormat:@"批准面积：%@",self.license.licenseDetail.grossArea];
+    self.numberOfBuildingsLabel.text = [NSString stringWithFormat:@"批准栋数：%@ 栋",self.license.licenseDetail.numberOfBuildings];
+
+    TypeInLicense *type;
+    
+    type = [[TypeInLicense alloc] init];
+    type = self.license.licenseDetail.allTypesInLicense[0];
+    self.typeLabel1.text = type.type;
+    self.areaLabel1.text = type.area;
+    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu",type.household];
+    
+    type = [[TypeInLicense alloc] init];
+    type = self.license.licenseDetail.allTypesInLicense[1];
+    self.typeLabel1.text = type.type;
+    self.areaLabel1.text = type.area;
+    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu",type.household];
+    
+    type = [[TypeInLicense alloc] init];
+    type = self.license.licenseDetail.allTypesInLicense[2];
+    self.typeLabel1.text = type.type;
+    self.areaLabel1.text = type.area;
+    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu",type.household];
+    
+    type = [[TypeInLicense alloc] init];
+    type = self.license.licenseDetail.allTypesInLicense[3];
+    self.typeLabel1.text = type.type;
+    self.areaLabel1.text = type.area;
+    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu",type.household];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

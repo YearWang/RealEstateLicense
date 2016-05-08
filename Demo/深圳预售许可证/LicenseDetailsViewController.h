@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class License;
 
 @interface LicenseDetailsViewController : UITableViewController
+
+@property (nonatomic, strong) License *license;
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
@@ -18,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *grossAreaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfBuildingsLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *tpyeLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel3;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel4;

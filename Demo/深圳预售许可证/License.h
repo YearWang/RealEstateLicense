@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LicenseDetail.h"
 
 @interface License : NSObject <NSCoding>
 
@@ -19,6 +20,6 @@
 @property (nonatomic, assign) NSUInteger quantity;
 
 @property (nonatomic, strong) NSMutableArray *buildings;
-@property (nonatomic, strong) NSMutableArray *licenseDetail;
+@property (nonatomic, strong) LicenseDetail *licenseDetail;
 
 @end

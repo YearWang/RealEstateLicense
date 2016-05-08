@@ -86,6 +86,11 @@
         DetailedPriceListViewController *controller = (DetailedPriceListViewController *) navigationController.topViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         controller.license = self.dataModel.licenses[indexPath.row];
+    }else if ([segue.identifier isEqualToString:@"ShowLicenseDetail"]){
+        UINavigationController *navigationController = segue.destinationViewController;
+        DetailedPriceListViewController *controller = (DetailedPriceListViewController *) navigationController.topViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        controller.license = self.dataModel.licenses[indexPath.row];
     }
 }
 

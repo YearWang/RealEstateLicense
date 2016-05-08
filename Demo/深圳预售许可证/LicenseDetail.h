@@ -10,8 +10,6 @@
 
 @interface LicenseDetail : NSObject
 
-@property (nonatomic, copy) NSString *name;
-
 @property (nonatomic, copy) NSString *location;
 @property (nonatomic, copy) NSString *company;
 
@@ -21,8 +19,6 @@
 @property (nonatomic, copy) NSString *grossArea;
 @property (nonatomic, copy) NSString *numberOfBuildings;
 
-@property (nonatomic, strong) NSMutableArray *types;
-@property (nonatomic, strong) NSMutableArray *areas;
-@property (nonatomic, strong) NSMutableArray *households;
+@property (nonatomic, strong) NSMutableArray *allTypesInLicense;
 
 @end

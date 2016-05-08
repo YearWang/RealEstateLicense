@@ -10,14 +10,6 @@
 
 @implementation License
 
-- (instancetype)init
-{
-    if (self = [super init]) {
-        self.buildings = [[NSMutableArray alloc] initWithCapacity:20];
-    }
-    return self;
-}
-
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
