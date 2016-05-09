@@ -21,4 +21,5 @@
 
 @property (nonatomic, strong) NSMutableArray *allTypesInLicense;
 
+
 @end

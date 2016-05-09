@@ -14,7 +14,7 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
-        self.type = [aDecoder decodeObjectForKey:@"Type"];
+        self.kind = [aDecoder decodeObjectForKey:@"Type"];
         self.area = [aDecoder decodeObjectForKey:@"Area"];
         self.household = [aDecoder decodeIntegerForKey:@"Household"];
 
@@ -25,17 +25,17 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.type forKey:@"Type"];
+    [aCoder encodeObject:self.kind forKey:@"Type"];
     [aCoder encodeObject:self.area forKey:@"Area"];
     [aCoder encodeInteger:self.household forKey:@"Household"];
 }
 
 + (instancetype)detailWithHtmlStr:(ONOXMLElement *)element
 {
-    TypeInLicense *t = [TypeInLicense new];
+    TypeInLicense *t = [[TypeInLicense alloc] init];
     
     ONOXMLElement *typeElement = [element firstChildWithXPath:@"td[2]"]; // 根据 XPath 获取td[2]下含有文章标题的 a 标签
-    t.type = [typeElement stringValue]; // 获取 用途
+    t.kind = [typeElement stringValue]; // 获取 用途
     
     ONOXMLElement *areaElement = [element firstChildWithXPath:@"td[4]"]; // 根据 XPath 获取含有文章标题的 a 标签
     t.area = [areaElement stringValue]; // 获取 该用途面积

@@ -29,31 +29,42 @@
     self.grossAreaLabel.text = [NSString stringWithFormat:@"批准面积：%@",self.license.licenseDetail.grossArea];
     self.numberOfBuildingsLabel.text = [NSString stringWithFormat:@"批准栋数：%@ 栋",self.license.licenseDetail.numberOfBuildings];
 
-    TypeInLicense *type;
+ 
+    self.typeLabel1.text = [self.license.licenseDetail.allTypesInLicense[0] kind];
+    self.areaLabel1.text = [self.license.licenseDetail.allTypesInLicense[0] area];
+    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu套",[self.license.licenseDetail.allTypesInLicense[0] household]];
+
+    self.typeLabel2.text = [self.license.licenseDetail.allTypesInLicense[1] kind];
+    self.areaLabel2.text = [self.license.licenseDetail.allTypesInLicense[1] area];
+    if (![self.license.licenseDetail.allTypesInLicense[1] household] == 0) {
+            self.householdsLabel2.text = [NSString stringWithFormat:@"%lu套",[self.license.licenseDetail.allTypesInLicense[1] household]];
+    }else{
+        self.householdsLabel2.text = @"";
+    }
     
-    type = [[TypeInLicense alloc] init];
-    type = self.license.licenseDetail.allTypesInLicense[0];
-    self.typeLabel1.text = type.type;
-    self.areaLabel1.text = type.area;
-    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu",type.household];
+    self.typeLabel3.text = [self.license.licenseDetail.allTypesInLicense[2] kind];
+    self.areaLabel3.text = [self.license.licenseDetail.allTypesInLicense[2] area];
+    if (![self.license.licenseDetail.allTypesInLicense[2] household] == 0) {
+        self.householdsLabel3.text = [NSString stringWithFormat:@"%lu套",[self.license.licenseDetail.allTypesInLicense[2] household]];
+    }else{
+        self.householdsLabel3.text = @"";
+    }
     
-    type = [[TypeInLicense alloc] init];
-    type = self.license.licenseDetail.allTypesInLicense[1];
-    self.typeLabel1.text = type.type;
-    self.areaLabel1.text = type.area;
-    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu",type.household];
+    self.typeLabel4.text = [self.license.licenseDetail.allTypesInLicense[3] kind];
+    self.areaLabel4.text = [self.license.licenseDetail.allTypesInLicense[3] area];
+    if (![self.license.licenseDetail.allTypesInLicense[3] household] == 0) {
+        self.householdsLabel4.text = [NSString stringWithFormat:@"%lu套",[self.license.licenseDetail.allTypesInLicense[3] household]];
+    }else{
+        self.householdsLabel4.text = @"";
+    }
     
-    type = [[TypeInLicense alloc] init];
-    type = self.license.licenseDetail.allTypesInLicense[2];
-    self.typeLabel1.text = type.type;
-    self.areaLabel1.text = type.area;
-    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu",type.household];
-    
-    type = [[TypeInLicense alloc] init];
-    type = self.license.licenseDetail.allTypesInLicense[3];
-    self.typeLabel1.text = type.type;
-    self.areaLabel1.text = type.area;
-    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu",type.household];
+    self.typeLabel5.text = [self.license.licenseDetail.allTypesInLicense[4] kind];
+    self.areaLabel5.text = [self.license.licenseDetail.allTypesInLicense[4] area];
+    if (![self.license.licenseDetail.allTypesInLicense[4] household] == 0) {
+        self.householdsLabel5.text = [NSString stringWithFormat:@"%lu套",[self.license.licenseDetail.allTypesInLicense[4] household]];
+    }else{
+        self.householdsLabel5.text = @"";
+    }
 }
 
 

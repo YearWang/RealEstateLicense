@@ -37,40 +37,32 @@
 
 - (void)loadLicenses
 {
+    
     NSString *path = [self dataFilePath];
+    NSLog(@"%@",path);
+    
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSData *data = [[NSData alloc] initWithContentsOfFile:path];
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
         self.licenses = [unarchiver decodeObjectForKey:@"Licenses"];
         [unarchiver finishDecoding];
-    }else{
-        self.licenses = [[NSMutableArray alloc] init];
-        License *license;
         
+    }else{
+        
+        self.licenses = [[NSMutableArray alloc] init];
         NSMutableArray *originalArray = [LicensesDownload getAllLicenses];
-        for (LicensesDownload *originalLicense in originalArray) {
-            license = [[License alloc] init];
-            license.name = originalLicense.name;
-            license.district = originalLicense.district;
-            license.date = originalLicense.date;
-            license.company = originalLicense.company;
+        
+        for (License *originalLicense in originalArray)
+        {
+            NSMutableArray *detailArray = [LicensesDownload getLicenseDetailFromDetailUrl:originalLicense.detailUrl];
+            originalLicense.licenseDetail = [detailArray firstObject];
             
-            //把两行代码合成了一行，是为了不要再次引入 #import “LicenseDetail”，直接把得到的一个 licenseDetail类放入数组
-            NSMutableArray *array = [LicensesDownload getLicenseDetailFromDetailUrl:originalLicense.detailUrl];
-            license.licenseDetail = [array firstObject];
+            NSMutableArray *buildingArray = [LicensesDownload getBuildingsFromBuildingUrl:originalLicense.buildingUrl];
+
             
-            [self.licenses addObject:license];
+            [self.licenses addObject:originalLicense];
         }
         
-        
-        //    for (License *license in _licenses) {
-        //        BuildingDetail *building1 = [[BuildingDetail alloc] init];
-        //        BuildingDetail *building2 = [[BuildingDetail alloc] init];
-        //        building1.buildingName = [NSString stringWithFormat:@"1Buildings of %@",license.name];
-        //        building2.buildingName = [NSString stringWithFormat:@"2Buildings of %@",license.name];
-        //        [license.buildings addObject:building1];
-        //        [license.buildings addObject:building2];
-        //    }
     }
 }
 

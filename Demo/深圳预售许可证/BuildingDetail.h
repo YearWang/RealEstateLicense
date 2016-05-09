@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class ONOXMLElement;
 
 @interface BuildingDetail : NSObject <NSCoding>
 
@@ -17,5 +18,8 @@
 
 @property (nonatomic, assign) NSUInteger buildingPrice;
 
+@property (nonatomic, copy) NSString *everyBuildingUrl;
+
++ (instancetype)buildingsWithHtmlStr:(ONOXMLElement *)element;
 
 @end

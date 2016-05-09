@@ -12,7 +12,7 @@
 
 @interface TypeInLicense : NSObject <NSCoding>
 
-@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSString *kind;
 @property (nonatomic, copy) NSString *area;
 @property (nonatomic, assign) NSUInteger household;
 

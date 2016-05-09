@@ -25,16 +25,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel3;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel4;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel5;
 
 @property (weak, nonatomic) IBOutlet UILabel *areaLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *areaLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *areaLabel3;
 @property (weak, nonatomic) IBOutlet UILabel *areaLabel4;
+@property (weak, nonatomic) IBOutlet UILabel *areaLabel5;
 
 @property (weak, nonatomic) IBOutlet UILabel *householdsLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *householdsLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *householdsLabel3;
 @property (weak, nonatomic) IBOutlet UILabel *householdsLabel4;
+@property (weak, nonatomic) IBOutlet UILabel *householdsLabel5;
 
 - (IBAction)back:(id)sender;
 

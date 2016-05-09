@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LicenseDetail.h"
+@class ONOXMLElement;
 
 @interface License : NSObject <NSCoding>
 
@@ -21,5 +22,10 @@
 
 @property (nonatomic, strong) NSMutableArray *buildings;
 @property (nonatomic, strong) LicenseDetail *licenseDetail;
+
+@property (nonatomic, copy) NSString *detailUrl;
+@property (nonatomic, copy) NSString *buildingUrl;
+
++ (instancetype)licenseWithHtmlStr:(ONOXMLElement *)element; //用HTML数据创建License类
 
 @end
