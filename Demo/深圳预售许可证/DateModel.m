@@ -8,6 +8,7 @@
 
 #import "DateModel.h"
 #import "License.h"
+#import "LicenseDetail.h"
 #import "LicensesDownload.h"
 
 @implementation DateModel
@@ -54,11 +55,13 @@
         
         for (License *originalLicense in originalArray)
         {
-            NSMutableArray *detailArray = [LicensesDownload getLicenseDetailFromDetailUrl:originalLicense.detailUrl];
-            originalLicense.licenseDetail = [detailArray firstObject];
-            
-            NSMutableArray *buildingArray = [LicensesDownload getBuildingsFromBuildingUrl:originalLicense.buildingUrl];
-
+            //给license的buildings数组属性添加building类
+            originalLicense.buildings = [originalLicense getWholeBuildings];
+           
+            // 给license的licenseDetail属性的各个属性赋值
+            LicenseDetail *detail = [[LicenseDetail alloc] init];
+            [detail getLicenseDetailWithDetailUrl:originalLicense.detailUrl];
+            originalLicense.licenseDetail = detail;
             
             [self.licenses addObject:originalLicense];
         }

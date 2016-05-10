@@ -21,5 +21,6 @@
 
 @property (nonatomic, strong) NSMutableArray *allTypesInLicense;
 
+- (void)getLicenseDetailWithDetailUrl:(NSString *)url;
 
 @end

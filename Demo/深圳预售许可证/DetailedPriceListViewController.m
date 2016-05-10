@@ -78,7 +78,11 @@
     UILabel *mainTypeAndHouseholdingsLabel = (UILabel *)[cell viewWithTag:12];
     UILabel *priceLabel = (UILabel *)[cell viewWithTag:13];
     
-    nameLabel.text = [NSString stringWithFormat:@"%@-%@",building.buildingName,building.buildingNumber];
+    if ([building.buildingName isEqualToString:@"--"]) {
+        nameLabel.text = [NSString stringWithFormat:@"%@-%@",self.license.name,building.buildingNumber];
+    }else{
+        nameLabel.text = [NSString stringWithFormat:@"%@-%@",building.buildingName,building.buildingNumber];
+    }
     mainTypeAndHouseholdingsLabel.text = [NSString stringWithFormat:@"%@:%lu套",building.buildingMainType,building.buildingHouseholdings];
     priceLabel.text = [NSString stringWithFormat:@"%lu",building.buildingPrice];
     

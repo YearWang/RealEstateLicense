@@ -9,6 +9,8 @@
 #import "BuildingDetail.h"
 #import <Ono.h>
 
+static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
+
 @implementation BuildingDetail
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -33,16 +35,16 @@
 }
 
 
-+ (instancetype)buildingsWithHtmlStr:(ONOXMLElement *)element
+/*
+- (void)buildingsWithHtmlStr:(ONOXMLElement *)element
 {
-    BuildingDetail *b = [[BuildingDetail alloc] init];
-    
     ONOXMLElement *buildingNameElement = [element firstChildWithXPath:@"td[2]"]; // 根据 XPath 获取td[2]下含有文章标题的 a 标签
-    b.buildingName = [buildingNameElement stringValue];//获取 预售证详情网址
+    self.buildingName = [buildingNameElement stringValue];//获取 预售证详情网址
     
     ONOXMLElement *urlElement = [element firstChildWithXPath:@"td[5]/a"]; // 根据 XPath 获取含有文章标题的 a 标签
-    b.everyBuildingUrl = [urlElement valueForAttribute:@"href"]; // 获取 项目网址
-    
+    NSString *relativeEveryBuildingUrl = [urlElement valueForAttribute:@"href"]; // 获取 项目各栋楼的相对URL
+    self.buildingUrl = [NSString stringWithFormat:@"%@%@",licenseUrlStr,relativeEveryBuildingUrl];
+    NSLog(@"%@",self.buildingUrl);
 //    ONOXMLElement *companyElement = [element firstChildWithXPath:@"td[4]"]; // 根据 XPath 获取文章发布时间 公司 标签
 //    l.company = [companyElement stringValue]; // 获取 开发商
 //    
@@ -52,7 +54,40 @@
 //    ONOXMLElement *dateElement = [element firstChildWithXPath:@"td[6]"]; // 根据 XPath 获取文章发布时间 span 标签
 //    l.date = [dateElement stringValue];  // 获取 预售证发布日期
     
-    return b;
+}
+*/
+
+- (NSMutableArray *)getEveryBuildingPage
+{
+    NSMutableArray *array = [NSMutableArray array];
+    
+    NSData *gbkData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.buildingUrl]];//下载主页网页数据
+    NSError *error;
+    //NSLog(@"%@第一次",gbkData);
+    
+    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSString *utf8Str = [[NSString alloc] initWithData:gbkData encoding:enc];
+    NSData *data = [utf8Str dataUsingEncoding:NSUTF8StringEncoding];
+    //NSLog(@"%@第二次",data);
+    
+    ONOXMLDocument *doc = [ONOXMLDocument HTMLDocumentWithData:data error:&error];
+    //NSLog(@"%@",doc);
+    
+    ONOXMLElement *licenseParentElement = [doc firstChildWithXPath:@"//table[@width='100%']/tr/td/table"]; //寻找该 XPath 代表的 HTML 节点
+    //SLog(@"%@",licenseParentElement);
+    
+    //遍历其子节点
+    [licenseParentElement.children enumerateObjectsUsingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *_Nonnull stop) {
+        
+        License *license = [[License alloc] init];
+        [license licenseWithHtmlStr:element];
+        
+        if (license.name) {
+            [array addObject:license];
+        }
+    }];
+    
+    return array;
 }
 
 @end

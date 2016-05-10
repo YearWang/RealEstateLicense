@@ -438,7 +438,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="E3h-bK-aiU"/>
                                                 <constraint firstAttribute="width" constant="259" id="PL3-0d-HlI"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -517,7 +517,7 @@
                                         <constraint firstItem="I5V-Fl-FeU" firstAttribute="width" secondItem="bd1-fe-LgE" secondAttribute="width" id="YMz-Tu-3nS"/>
                                         <constraint firstItem="3W0-Dh-mWR" firstAttribute="centerY" secondItem="n6T-3h-vZ6" secondAttribute="centerY" id="fM9-OU-5fc"/>
                                         <constraint firstItem="bd1-fe-LgE" firstAttribute="leading" secondItem="n6T-3h-vZ6" secondAttribute="leadingMargin" id="hud-vW-OeO">
-                                            <variation key="widthClass=compact" constant="10"/>
+                                            <variation key="widthClass=compact" constant="8"/>
                                         </constraint>
                                         <constraint firstItem="bd1-fe-LgE" firstAttribute="top" secondItem="n6T-3h-vZ6" secondAttribute="topMargin" id="j2I-eH-lnD">
                                             <variation key="widthClass=compact" constant="2"/>
@@ -1458,7 +1458,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="AGj-i0-KzB">
-                                        <rect key="frame" x="0.0" y="507" width="600" height="43"/>
+                                        <rect key="frame" x="0.0" y="550" width="600" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AGj-i0-KzB" id="bDZ-g0-XgB">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="42.5"/>
@@ -1554,14 +1554,14 @@
                                                     <exclude reference="Jmg-DN-VuO"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="sg1-AC-TBt"/>
-                                                    <exclude reference="m5o-i4-NmO"/>
                                                     <exclude reference="MJa-Ds-y9g"/>
-                                                    <exclude reference="wy5-Kg-Iav"/>
+                                                    <exclude reference="m5o-i4-NmO"/>
+                                                    <exclude reference="sg1-AC-TBt"/>
                                                     <exclude reference="OsA-5I-usK"/>
+                                                    <exclude reference="wy5-Kg-Iav"/>
                                                     <exclude reference="xUf-Vh-cjP"/>
-                                                    <exclude reference="XLU-xn-UhD"/>
                                                     <exclude reference="P01-T4-3v0"/>
+                                                    <exclude reference="XLU-xn-UhD"/>
                                                     <exclude reference="sbj-eP-Fa7"/>
                                                 </mask>
                                             </variation>
@@ -1572,14 +1572,14 @@
                                                     <include reference="Jmg-DN-VuO"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="sg1-AC-TBt"/>
-                                                    <include reference="m5o-i4-NmO"/>
                                                     <include reference="MJa-Ds-y9g"/>
-                                                    <include reference="wy5-Kg-Iav"/>
+                                                    <include reference="m5o-i4-NmO"/>
+                                                    <include reference="sg1-AC-TBt"/>
                                                     <include reference="OsA-5I-usK"/>
+                                                    <include reference="wy5-Kg-Iav"/>
                                                     <include reference="xUf-Vh-cjP"/>
-                                                    <include reference="XLU-xn-UhD"/>
                                                     <include reference="P01-T4-3v0"/>
+                                                    <include reference="XLU-xn-UhD"/>
                                                     <include reference="sbj-eP-Fa7"/>
                                                 </mask>
                                             </variation>

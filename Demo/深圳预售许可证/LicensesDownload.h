@@ -12,7 +12,5 @@
 @interface LicensesDownload : NSObject
 
 + (NSMutableArray *)getAllLicenses; //获取所有预售证
-+ (NSMutableArray *)getLicenseDetailFromDetailUrl:(NSString *)url; //获取许可证的详细信息
-+ (NSMutableArray *)getBuildingsFromBuildingUrl:(NSString *)url; //获取许可证内的各个楼座
 
 @end

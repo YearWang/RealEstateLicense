@@ -26,6 +26,8 @@
 @property (nonatomic, copy) NSString *detailUrl;
 @property (nonatomic, copy) NSString *buildingUrl;
 
-+ (instancetype)licenseWithHtmlStr:(ONOXMLElement *)element; //用HTML数据创建License类
+- (void)licenseWithHtmlStr:(ONOXMLElement *)element; //用HTML数据创建License类
+
+- (NSMutableArray *)getWholeBuildings;//用HTML数据获取building类
 
 @end

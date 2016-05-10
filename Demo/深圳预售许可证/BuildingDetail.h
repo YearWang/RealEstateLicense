@@ -18,8 +18,8 @@
 
 @property (nonatomic, assign) NSUInteger buildingPrice;
 
-@property (nonatomic, copy) NSString *everyBuildingUrl;
+@property (nonatomic, copy) NSString *buildingUrl;
 
-+ (instancetype)buildingsWithHtmlStr:(ONOXMLElement *)element;
+// (void)buildingsWithHtmlStr:(ONOXMLElement *)element;
 
 @end
