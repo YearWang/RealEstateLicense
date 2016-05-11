@@ -9,7 +9,6 @@
 #import "AllLicensesViewController.h"
 #import "DetailedPriceListViewController.h"
 #import "License.h"
-#import "BuildingDetail.h"
 #import "DateModel.h"
 
 @interface AllLicensesViewController ()

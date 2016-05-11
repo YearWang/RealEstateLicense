@@ -62,6 +62,7 @@
             LicenseDetail *detail = [[LicenseDetail alloc] init];
             [detail getLicenseDetailWithDetailUrl:originalLicense.detailUrl];
             originalLicense.licenseDetail = detail;
+            originalLicense.quantity = detail.totalNumberOfHouseholds;
             
             [self.licenses addObject:originalLicense];
         }

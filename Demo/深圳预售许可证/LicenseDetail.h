@@ -19,6 +19,8 @@
 @property (nonatomic, copy) NSString *grossArea;
 @property (nonatomic, copy) NSString *numberOfBuildings;
 
+@property(nonatomic, assign) NSUInteger totalNumberOfHouseholds;
+
 @property (nonatomic, strong) NSMutableArray *allTypesInLicense;
 
 - (void)getLicenseDetailWithDetailUrl:(NSString *)url;

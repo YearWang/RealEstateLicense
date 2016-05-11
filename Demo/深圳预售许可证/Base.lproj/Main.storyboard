@@ -513,9 +513,13 @@
                                         <constraint firstItem="3W0-Dh-mWR" firstAttribute="trailing" secondItem="n6T-3h-vZ6" secondAttribute="trailingMargin" id="MTh-4S-coP">
                                             <variation key="widthClass=compact" constant="12"/>
                                         </constraint>
-                                        <constraint firstItem="BDA-ZG-jFU" firstAttribute="centerY" secondItem="n6T-3h-vZ6" secondAttribute="centerY" id="WLK-PO-4xv"/>
+                                        <constraint firstItem="BDA-ZG-jFU" firstAttribute="centerY" secondItem="n6T-3h-vZ6" secondAttribute="centerY" id="WLK-PO-4xv">
+                                            <variation key="widthClass=compact" constant="11.25"/>
+                                        </constraint>
                                         <constraint firstItem="I5V-Fl-FeU" firstAttribute="width" secondItem="bd1-fe-LgE" secondAttribute="width" id="YMz-Tu-3nS"/>
-                                        <constraint firstItem="3W0-Dh-mWR" firstAttribute="centerY" secondItem="n6T-3h-vZ6" secondAttribute="centerY" id="fM9-OU-5fc"/>
+                                        <constraint firstItem="3W0-Dh-mWR" firstAttribute="centerY" secondItem="n6T-3h-vZ6" secondAttribute="centerY" id="fM9-OU-5fc">
+                                            <variation key="widthClass=compact" constant="11.25"/>
+                                        </constraint>
                                         <constraint firstItem="bd1-fe-LgE" firstAttribute="leading" secondItem="n6T-3h-vZ6" secondAttribute="leadingMargin" id="hud-vW-OeO">
                                             <variation key="widthClass=compact" constant="8"/>
                                         </constraint>

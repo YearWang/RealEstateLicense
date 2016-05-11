@@ -8,7 +8,8 @@
 
 #import "License.h"
 #import <Ono.h>
-#import "BuildingDetail.h"
+#import "BuildingOfThisLicense.h"
+#import "UnitOfThisBuilding.h"
 
 static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 
@@ -79,16 +80,20 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     
     ONOXMLDocument *doc = [ONOXMLDocument HTMLDocumentWithData:data error:&error];
     
-    ONOXMLElement *licenseParentElement = [doc firstChildWithXPath:@"//*[@id='DataList1']"]; //寻找该 XPath 代表的 HTML 节点
+    ONOXMLElement *buildingsParentElement = [doc firstChildWithXPath:@"//*[@id='DataList1']"]; //寻找该 XPath 代表的 HTML 节点
 
     //遍历其子节点,提取其中wholeBuilding的信息
-    [licenseParentElement.children enumerateObjectsUsingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *_Nonnull stop) {
+    [buildingsParentElement.children enumerateObjectsUsingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *_Nonnull stop) {
         
-        BuildingDetail *building = [[BuildingDetail alloc] init];
+        BuildingOfThisLicense *building = [[BuildingOfThisLicense alloc] init];
         [building buildingsWithHtmlStr:element];
 
-        if (building.buildingName) {
-            [array addObject:building];
+        if (building.everyBuildingName) {
+            building.units = [building getUnits];
+
+            for (UnitOfThisBuilding *unit in building.units) {
+                [array addObject:unit];
+            }
         }
     }];
     return array;

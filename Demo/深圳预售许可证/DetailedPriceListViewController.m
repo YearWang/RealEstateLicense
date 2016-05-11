@@ -7,7 +7,7 @@
 //
 
 #import "DetailedPriceListViewController.h"
-#import "BuildingDetail.h"
+#import "UnitOfThisBuilding.h"
 #import "License.h"
 
 @interface DetailedPriceListViewController ()
@@ -15,14 +15,6 @@
 @end
 
 @implementation DetailedPriceListViewController
-
-//- (instancetype)initWithCoder:(NSCoder *)aDecoder
-//{
-//    if (self = [super initWithCoder:aDecoder]) {
-//        [self loadBuildingDetails];
-//    }
-//    return self;
-//}
 
 //- (instancetype)initWithCoder:(NSCoder *)aDecoder
 //{
@@ -72,19 +64,21 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuildingPriceCell"];
     
-    BuildingDetail *building = self.license.buildings[indexPath.row];
+    UnitOfThisBuilding *unit = self.license.buildings[indexPath.row];
     
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:11];
-    UILabel *mainTypeAndHouseholdingsLabel = (UILabel *)[cell viewWithTag:12];
-    UILabel *priceLabel = (UILabel *)[cell viewWithTag:13];
+//    UILabel *mainTypeAndHouseholdingsLabel = (UILabel *)[cell viewWithTag:12];
+//    UILabel *priceLabel = (UILabel *)[cell viewWithTag:13];
     
-    if ([building.buildingName isEqualToString:@"--"]) {
-        nameLabel.text = [NSString stringWithFormat:@"%@-%@",self.license.name,building.buildingNumber];
+    if ([[unit.buildingUnitName substringToIndex:2] isEqualToString:@"--"]) {
+        NSMutableString *string  = [NSMutableString stringWithString:unit.buildingUnitName];
+        [string replaceCharactersInRange:NSMakeRange(0, 2) withString:self.license.name];
+        nameLabel.text = string;
     }else{
-        nameLabel.text = [NSString stringWithFormat:@"%@-%@",building.buildingName,building.buildingNumber];
+        nameLabel.text = unit.buildingUnitName;
     }
-    mainTypeAndHouseholdingsLabel.text = [NSString stringWithFormat:@"%@:%lu套",building.buildingMainType,building.buildingHouseholdings];
-    priceLabel.text = [NSString stringWithFormat:@"%lu",building.buildingPrice];
+//    mainTypeAndHouseholdingsLabel.text = [NSString stringWithFormat:@"%@:%lu套",building.buildingMainType,building.buildingHouseholdings];
+//    priceLabel.text = [NSString stringWithFormat:@"%lu",building.buildingPrice];
     
     return cell;
 }

@@ -80,6 +80,7 @@
         TypeInLicense *typeInLicense = [TypeInLicense detailWithHtmlStr:element];
         if (typeInLicense.household && typeInLicense.household != 0)
         {
+            self.totalNumberOfHouseholds += typeInLicense.household;
             [typesArray addObject:typeInLicense];
         }
     }];

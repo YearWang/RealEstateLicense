@@ -9,13 +9,16 @@
 #import <Foundation/Foundation.h>
 @class ONOXMLElement;
 
-@interface BuildingsOfThisLicense : NSObject
+@interface BuildingOfThisLicense : NSObject
 
 @property (nonatomic, copy) NSString *everyBuildingName;
 
 @property (nonatomic, copy) NSString *everyBuildingUrl;
 
+@property (nonatomic, strong) NSMutableArray *units;
+
 
 - (void)buildingsWithHtmlStr:(ONOXMLElement *)element;
+- (NSMutableArray *)getUnits;
 
 @end
