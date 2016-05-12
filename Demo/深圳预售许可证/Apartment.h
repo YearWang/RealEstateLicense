@@ -18,8 +18,9 @@
 @property (nonatomic ,copy) NSString *floor;
 @property (nonatomic, copy) NSString *usage;
 @property (nonatomic, copy) NSString *grossFloorArea;
-@property (nonatomic, copy) NSString *averagePrice;
+@property (nonatomic, assign) NSUInteger averagePrice;
 
-- (void)apartmentWithHtmlStr:(ONOXMLElement *)element; //给该apartment各属性赋值
+- (void)apartmentWithHtmlStr:(ONOXMLElement *)element; //给该apartment的 apartmentNumberWithSquareMetre 和 apartmentUrl 属性赋值
+- (void)getApartmentDetail;//给该apartment的 其他属性 赋值
 
 @end

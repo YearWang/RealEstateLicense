@@ -23,7 +23,7 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 }
 
 
-- (NSMutableArray *)getApartments
+- (NSArray *)getApartments
 {
     NSMutableArray *array = [NSMutableArray array];
     
@@ -44,6 +44,7 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
             Apartment *apartment = [[Apartment alloc] init];
             [apartment apartmentWithHtmlStr:element];
             if (apartment.apartmentUrl) {
+                [apartment getApartmentDetail];
                 [array addObject:apartment];
             }
             
@@ -51,25 +52,56 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
         
     }];
     
-    NSMutableArray *array1 = [[NSMutableArray alloc] init];
-    NSMutableArray *array2 = [[NSMutableArray alloc] init];
-    NSMutableArray *array3 = [[NSMutableArray alloc] init];
-    NSMutableArray *array4 = [[NSMutableArray alloc] init];
-    NSMutableArray *array5 = [[NSMutableArray alloc] init];
-    
+    NSMutableArray *array1 = [[NSMutableArray alloc] init];//住宅
+    NSMutableArray *array2 = [[NSMutableArray alloc] init];//商业
+    NSMutableArray *array3 = [[NSMutableArray alloc] init];//商务公寓
+    NSMutableArray *array4 = [[NSMutableArray alloc] init];//办公
+    NSMutableArray *array5 = [[NSMutableArray alloc] init];//商务办公
+    NSMutableArray *array6 = [[NSMutableArray alloc] init];//商业性办公
+    NSMutableArray *array7 = [[NSMutableArray alloc] init];//研发用房
+    NSMutableArray *array8 = [[NSMutableArray alloc] init];//其他
 
-    for (Apartment *apartment in array) {
-        if (!array1) {
+    for (Apartment *apartment in array)
+    {
+        if ([apartment.usage containsString:@"住宅"]) {
             [array1 addObject:apartment];
+        }else if ([apartment.usage containsString:@"住宅"]){
+            [array2 addObject:apartment];
+        }else if ([apartment.usage containsString:@"商务公寓"]){
+            [array3 addObject:apartment];
+        }else if ([apartment.usage containsString:@"办公"]){
+            [array4 addObject:apartment];
+        }else if ([apartment.usage containsString:@"商务办公"]){
+            [array5 addObject:apartment];
+        }else if ([apartment.usage containsString:@"商业性办公"]){
+            [array6 addObject:apartment];
+        }else if ([apartment.usage containsString:@"研发用房"]){
+            [array7 addObject:apartment];
         }else{
-            if ([[array1[0] usage] isEqualToString:apartment.usage]) {
-                [array1 addObject:apartment];
-            }else{
-                [array2 addObject:apartment];
-            }
+            [array8 addObject:apartment];
         }
     }
-    return array;
+    
+    NSArray *maximalArray = [[NSArray alloc] init];
+    NSArray *allArray = @[array1,array2,array3,array4,array5,array6,array7,array8];
+    
+    for (NSMutableArray *arr in allArray) {
+        if (arr.count >= maximalArray.count) {
+            maximalArray = arr;
+        }
+    }
+    return maximalArray;
 }
+
+- (NSString *)mainUsage
+{
+    return [self.apartments[0] usage];
+}
+
+- (NSUInteger)quantityOfMainUsageApartment
+{
+    return [self.apartments count];
+}
+
 
 @end

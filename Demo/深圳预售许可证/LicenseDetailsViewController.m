@@ -32,12 +32,12 @@
  
     self.typeLabel1.text = [self.license.licenseDetail.allTypesInLicense[0] kind];
     self.areaLabel1.text = [self.license.licenseDetail.allTypesInLicense[0] area];
-    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu套",[self.license.licenseDetail.allTypesInLicense[0] household]];
+    self.householdsLabel1.text = [NSString stringWithFormat:@"%lu套",(unsigned long)[self.license.licenseDetail.allTypesInLicense[0] household]];
 
     self.typeLabel2.text = [self.license.licenseDetail.allTypesInLicense[1] kind];
     self.areaLabel2.text = [self.license.licenseDetail.allTypesInLicense[1] area];
     if (![self.license.licenseDetail.allTypesInLicense[1] household] == 0) {
-            self.householdsLabel2.text = [NSString stringWithFormat:@"%lu套",[self.license.licenseDetail.allTypesInLicense[1] household]];
+            self.householdsLabel2.text = [NSString stringWithFormat:@"%lu套",(unsigned long)[self.license.licenseDetail.allTypesInLicense[1] household]];
     }else{
         self.householdsLabel2.text = @"";
     }
@@ -45,7 +45,7 @@
     self.typeLabel3.text = [self.license.licenseDetail.allTypesInLicense[2] kind];
     self.areaLabel3.text = [self.license.licenseDetail.allTypesInLicense[2] area];
     if (![self.license.licenseDetail.allTypesInLicense[2] household] == 0) {
-        self.householdsLabel3.text = [NSString stringWithFormat:@"%lu套",[self.license.licenseDetail.allTypesInLicense[2] household]];
+        self.householdsLabel3.text = [NSString stringWithFormat:@"%lu套",(unsigned long)[self.license.licenseDetail.allTypesInLicense[2] household]];
     }else{
         self.householdsLabel3.text = @"";
     }
@@ -53,7 +53,7 @@
     self.typeLabel4.text = [self.license.licenseDetail.allTypesInLicense[3] kind];
     self.areaLabel4.text = [self.license.licenseDetail.allTypesInLicense[3] area];
     if (![self.license.licenseDetail.allTypesInLicense[3] household] == 0) {
-        self.householdsLabel4.text = [NSString stringWithFormat:@"%lu套",[self.license.licenseDetail.allTypesInLicense[3] household]];
+        self.householdsLabel4.text = [NSString stringWithFormat:@"%lu套",(unsigned long)[self.license.licenseDetail.allTypesInLicense[3] household]];
     }else{
         self.householdsLabel4.text = @"";
     }
@@ -61,7 +61,7 @@
     self.typeLabel5.text = [self.license.licenseDetail.allTypesInLicense[4] kind];
     self.areaLabel5.text = [self.license.licenseDetail.allTypesInLicense[4] area];
     if (![self.license.licenseDetail.allTypesInLicense[4] household] == 0) {
-        self.householdsLabel5.text = [NSString stringWithFormat:@"%lu套",[self.license.licenseDetail.allTypesInLicense[4] household]];
+        self.householdsLabel5.text = [NSString stringWithFormat:@"%lu套",(unsigned long)[self.license.licenseDetail.allTypesInLicense[4] household]];
     }else{
         self.householdsLabel5.text = @"";
     }

@@ -65,6 +65,9 @@
             originalLicense.quantity = detail.totalNumberOfHouseholds;
             
             [self.licenses addObject:originalLicense];
+            if (self.licenses.count == 2) {
+                break;
+            }
         }
         
     }

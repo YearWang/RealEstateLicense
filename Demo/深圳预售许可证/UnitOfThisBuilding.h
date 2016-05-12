@@ -14,6 +14,10 @@
 @property (nonatomic, copy) NSString *buildingUnitName;
 @property (nonatomic, copy) NSString *unitUrl;
 
+@property (nonatomic, copy) NSString *mainUsage;
+@property (nonatomic, assign) NSUInteger quantityOfMainUsageApartment;
+@property (nonatomic, assign) NSUInteger averagePriceOfMainUsage;
+
 @property (nonatomic, strong) NSMutableArray *apartments;
 
 - (void)UnitWithHtmlStr:(ONOXMLElement *)element unitNameByAppendingBuildingName:(NSString *)string; //给该unit各属性赋值

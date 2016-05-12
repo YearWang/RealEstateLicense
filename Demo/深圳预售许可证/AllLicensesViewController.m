@@ -64,8 +64,8 @@
     
     dateLabel.text = [NSString stringWithFormat:@"批准时间:%@",license.date];
     companyLabel.text = [NSString stringWithFormat:@"开发企业:%@",license.company];
-    priceLabel.text = [NSString stringWithFormat:@"%ld",license.price];
-    quantityLabel.text = [NSString stringWithFormat:@"%ld",license.quantity];
+    priceLabel.text = [NSString stringWithFormat:@"%ld",(unsigned long)license.price];
+    quantityLabel.text = [NSString stringWithFormat:@"%ld",(unsigned long)license.quantity];
 
     return cell;
 }
