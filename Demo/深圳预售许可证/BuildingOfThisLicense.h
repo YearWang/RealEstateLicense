@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @class ONOXMLElement;
 
-@interface BuildingOfThisLicense : NSObject
+@interface BuildingOfThisLicense : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *everyBuildingName;
 

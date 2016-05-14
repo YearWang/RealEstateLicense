@@ -8,11 +8,37 @@
 
 #import "UnitOfThisBuilding.h"
 #import "Apartment.h"
+#import "KindOfApartment.h"
 #import <Ono.h>
 
 static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 
 @implementation UnitOfThisBuilding
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        self.buildingUnitName = [aDecoder decodeObjectForKey:@"BuildingUnitName"];
+        self.unitUrl = [aDecoder decodeObjectForKey:@"UnitUrl"];
+        self.mainUsage = [aDecoder decodeObjectForKey:@"MainUsage"];
+        self.apartments = [aDecoder decodeObjectForKey:@"Apartments"];
+        self.quantityOfMainUsageApartment = [aDecoder decodeIntegerForKey:@"QuantityOfMainUsageApartment"];
+        self.averagePriceOfMainUsage = [aDecoder decodeFloatForKey:@"AveragePriceOfMainUsage"];
+
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.buildingUnitName forKey:@"BuildingUnitName"];
+    [aCoder encodeObject:self.unitUrl forKey:@"UnitUrl"];
+    [aCoder encodeObject:self.mainUsage forKey:@"MainUsage"];
+    [aCoder encodeObject:self.apartments forKey:@"Apartments"];
+    [aCoder encodeInteger:self.quantityOfMainUsageApartment forKey:@"QuantityOfMainUsageApartment"];
+    [aCoder encodeFloat:self.averagePriceOfMainUsage forKey:@"AveragePriceOfMainUsage"];
+
+}
 
 - (void)UnitWithHtmlStr:(ONOXMLElement *)element unitNameByAppendingBuildingName:(NSString *)string//给该unit各属性赋值
 {
@@ -101,6 +127,62 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 - (NSUInteger)quantityOfMainUsageApartment
 {
     return [self.apartments count];
+}
+
+- (void)getAveragePriceOfMainUsage
+{
+    float total = 0.00;
+    float totalGross = 0.00;
+    for (Apartment *apartment in self.apartments) {
+        total += apartment.totalPrice;
+        totalGross += apartment.grossFloorArea;
+    }
+    
+//    NSLog(@"%.2f,%.2f",total,totalGross);
+    
+    self.averagePriceOfMainUsage = total/totalGross;
+    //NSLog(@"%.2f",self.averagePriceOfMainUsage);
+}
+
+- (NSMutableArray *)AllKindsOfApartment
+{
+    NSMutableArray *allKinds = [[NSMutableArray alloc]init];
+    for (Apartment *apartment in self.apartments) {
+        if (!allKinds) {
+            NSMutableArray *kind = [NSMutableArray arrayWithObject:apartment];
+            [allKinds addObject:kind];
+        }else{
+            int i = 0;
+            int n = 0 ;
+            for (NSMutableArray *kind in allKinds) {
+                i += kind.count;
+                NSString *kindString = [[kind firstObject] kindNumber];
+                if ([apartment.kindNumber isEqualToString:kindString]) {
+                    [kind addObject:apartment];
+                }
+                n += kind.count;
+            }
+            if (i == n) {
+                NSMutableArray *kind = [NSMutableArray arrayWithObject:apartment];
+                [allKinds addObject:kind];
+            }
+        }
+    }
+    
+    NSMutableArray *array = [[NSMutableArray alloc]init];
+    for (NSMutableArray *kind in allKinds) {
+        KindOfApartment *kindOfApartment = [[KindOfApartment alloc]init];
+        kindOfApartment.numberOfTheKind = [[kind firstObject] kindNumber];
+        float totalPrice = 0;
+        float totalGorssArea = 0;
+        for (Apartment *apartment in kind) {
+            totalPrice += apartment.totalPrice;
+            totalGorssArea += apartment.grossFloorArea;
+        }
+        kindOfApartment.averagePriceOfTheKind = totalPrice/totalGorssArea;
+        [array addObject:kindOfApartment];
+    }
+    return array;
 }
 
 

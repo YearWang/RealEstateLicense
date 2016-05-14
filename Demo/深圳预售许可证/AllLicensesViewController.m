@@ -7,7 +7,7 @@
 //
 
 #import "AllLicensesViewController.h"
-#import "DetailedPriceListViewController.h"
+#import "UnitPriceViewController.h"
 #import "License.h"
 #import "DateModel.h"
 
@@ -82,12 +82,12 @@
 {
     if ([segue.identifier isEqualToString:@"ShowBuildingPrice"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        DetailedPriceListViewController *controller = (DetailedPriceListViewController *) navigationController.topViewController;
+        UnitPriceViewController *controller = (UnitPriceViewController *) navigationController.topViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         controller.license = self.dataModel.licenses[indexPath.row];
     }else if ([segue.identifier isEqualToString:@"ShowLicenseDetail"]){
         UINavigationController *navigationController = segue.destinationViewController;
-        DetailedPriceListViewController *controller = (DetailedPriceListViewController *) navigationController.topViewController;
+        UnitPriceViewController *controller = (UnitPriceViewController *) navigationController.topViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         controller.license = self.dataModel.licenses[indexPath.row];
     }

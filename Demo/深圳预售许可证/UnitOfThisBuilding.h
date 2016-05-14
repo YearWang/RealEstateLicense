@@ -9,19 +9,22 @@
 #import <Foundation/Foundation.h>
 @class ONOXMLElement;
 
-@interface UnitOfThisBuilding : NSObject
+@interface UnitOfThisBuilding : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *buildingUnitName;
 @property (nonatomic, copy) NSString *unitUrl;
 
 @property (nonatomic, copy) NSString *mainUsage;
 @property (nonatomic, assign) NSUInteger quantityOfMainUsageApartment;
-@property (nonatomic, assign) NSUInteger averagePriceOfMainUsage;
+@property (nonatomic, assign) float averagePriceOfMainUsage;
 
-@property (nonatomic, strong) NSMutableArray *apartments;
+@property (nonatomic, copy) NSMutableArray *apartments;
+@property (nonatomic, strong) NSMutableArray *AllKindsOfApartment;
 
 - (void)UnitWithHtmlStr:(ONOXMLElement *)element unitNameByAppendingBuildingName:(NSString *)string; //给该unit各属性赋值
 
 - (NSMutableArray *)getApartments;
+
+-(void)getAveragePriceOfMainUsage;
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class License;
 
-@interface DetailedPriceListViewController : UITableViewController
+@interface UnitPriceViewController : UITableViewController
 
 @property (nonatomic, strong) License *license;
 

@@ -14,6 +14,23 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 
 @implementation BuildingOfThisLicense
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        self.everyBuildingName = [aDecoder decodeObjectForKey:@"EveryBuildingName"];
+        self.everyBuildingUrl = [aDecoder decodeObjectForKey:@"EveryBuildingUrl"];
+        self.units = [aDecoder decodeObjectForKey:@"Units"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.everyBuildingName forKey:@"EveryBuildingName"];
+    [aCoder encodeObject:self.everyBuildingUrl forKey:@"EveryBuildingUrl"];
+    [aCoder encodeObject:self.units forKey:@"Units"];
+}
+
 
 - (void)buildingsWithHtmlStr:(ONOXMLElement *)element
 {
@@ -50,10 +67,13 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
         [unit UnitWithHtmlStr:element unitNameByAppendingBuildingName:self.everyBuildingName];
         [array addObject:unit];
     }];
+    
     [array[0] setUnitUrl:self.everyBuildingUrl];
     
     for (UnitOfThisBuilding *unit in array) {
         unit.apartments = [unit getApartments];
+        [unit getAveragePriceOfMainUsage];
+        [unit AllKindsOfApartment];
     }
     return array;
 }
