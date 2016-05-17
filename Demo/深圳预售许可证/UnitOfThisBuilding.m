@@ -170,16 +170,19 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     }
     
     NSMutableArray *array = [[NSMutableArray alloc]init];
+    
     for (NSMutableArray *kind in allKinds) {
         KindOfApartment *kindOfApartment = [[KindOfApartment alloc]init];
         kindOfApartment.numberOfTheKind = [[kind firstObject] kindNumber];
         float totalPrice = 0;
         float totalGorssArea = 0;
+        
         for (Apartment *apartment in kind) {
             totalPrice += apartment.totalPrice;
             totalGorssArea += apartment.grossFloorArea;
         }
         kindOfApartment.averagePriceOfTheKind = totalPrice/totalGorssArea;
+        
         [array addObject:kindOfApartment];
     }
     return array;

@@ -84,8 +84,13 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     NSUInteger length = [self.roomNumber length];
     NSRange rang = NSMakeRange(length-3, 2);
     NSString * strRang = [self.roomNumber substringWithRange:rang];
-    self.kindNumber = strRang;
+    unichar c=[strRang characterAtIndex:1];
 
+    if (c >='A' && c <='Z') {
+        self.kindNumber = [strRang substringFromIndex:1];
+    }else{
+        self.kindNumber = strRang;
+    }
     
     ONOXMLElement *usageElement = [doc firstChildWithXPath:@"//table[@width='98%']/tr[3]/td[6]"];
     self.usage = [usageElement stringValue];

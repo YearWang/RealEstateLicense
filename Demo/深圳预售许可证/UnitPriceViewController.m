@@ -21,6 +21,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.license.name;
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        //给license的buildings数组属性添加building类
+        NSMutableArray *buildings = [self.license getWholeBuildings];
+        
+        //通知主线程刷新
+        dispatch_async(dispatch_get_main_queue(), ^{
+    
+            self.license.buildings = buildings;
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,7 +83,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ShowKindsOfApartment"]) {
-        KindsOfApartmentViewController *controller = segue.destinationViewController;
+        UINavigationController *navigationController = segue.destinationViewController;
+        KindsOfApartmentViewController *controller = (KindsOfApartmentViewController *) navigationController.topViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         controller.unit = self.license.buildings[indexPath.row];
     }

@@ -52,24 +52,36 @@
         
         self.licenses = [[NSMutableArray alloc] init];
         NSMutableArray *originalArray = [LicensesDownload getAllLicenses];
+        self.licenses = originalArray;
         
-        for (License *originalLicense in originalArray)
+        for (License *originalLicense in self.licenses)
         {
-            //给license的buildings数组属性添加building类
-            originalLicense.buildings = [originalLicense getWholeBuildings];
-           
-            // 给license的licenseDetail属性的各个属性赋值
+            
+            //获得各个预售证的详情页信息
             LicenseDetail *detail = [[LicenseDetail alloc] init];
             [detail getLicenseDetailWithDetailUrl:originalLicense.detailUrl];
+            
+            // 给license的licenseDetail属性的各个属性赋值
             originalLicense.licenseDetail = detail;
             originalLicense.quantity = detail.totalNumberOfHouseholds;
-            
-            [self.licenses addObject:originalLicense];
-            if (self.licenses.count == 2) {
-                break;
-            }
+//            
+//            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//                //给license的buildings数组属性添加building类
+//                NSMutableArray *buildings = [originalLicense getWholeBuildings];
+//                
+//                //通知主线程刷新
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    
+//                    originalLicense.buildings = buildings;
+//                 });
+//                
+//            });
+//            
+//            if (n == 2) {
+//                break;
+//            }
+//            n++;
         }
-        
     }
 }
 

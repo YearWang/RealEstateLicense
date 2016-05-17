@@ -33,9 +33,10 @@
     return [self.unit.AllKindsOfApartment count];
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuildingPriceCell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KindOfApartmentCell"];
     
     KindOfApartment *kind = self.unit.AllKindsOfApartment[indexPath.row];
     
@@ -43,12 +44,18 @@
     UILabel *kindPriceLabel = (UILabel *)[cell viewWithTag:22];
     
     kindNameLabel.text = [NSString stringWithFormat:@"%@ 户型",kind.numberOfTheKind];
-    kindPriceLabel.text = [NSString stringWithFormat:@"%.0f",kind.averagePriceOfTheKind];
+    kindPriceLabel.text = [NSString stringWithFormat:@"%.2f",kind.averagePriceOfTheKind];
     
     return cell;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
 
-
-
+- (IBAction)back:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 @end
