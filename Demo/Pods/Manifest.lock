@@ -1,10 +1,13 @@
 PODS:
+  - BmobSDK (1.7.0)
   - Ono (1.2.2)
 
 DEPENDENCIES:
+  - BmobSDK
   - Ono
 
 SPEC CHECKSUMS:
+  BmobSDK: 1a7bb2aa514e69663f5b561a5c5cc5b479b20ad2
   Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
 
 COCOAPODS: 0.39.0

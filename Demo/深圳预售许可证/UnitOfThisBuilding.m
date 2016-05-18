@@ -135,7 +135,9 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     float totalGross = 0.00;
     for (Apartment *apartment in self.apartments) {
         total += apartment.totalPrice;
-        totalGross += apartment.grossFloorArea;
+        if (apartment.averagePrice) {
+            totalGross += apartment.grossFloorArea;
+        }
     }
     
 //    NSLog(@"%.2f,%.2f",total,totalGross);
@@ -179,7 +181,9 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
         
         for (Apartment *apartment in kind) {
             totalPrice += apartment.totalPrice;
-            totalGorssArea += apartment.grossFloorArea;
+            if (apartment.averagePrice) {
+                totalGorssArea += apartment.grossFloorArea;
+            }
         }
         kindOfApartment.averagePriceOfTheKind = totalPrice/totalGorssArea;
         
