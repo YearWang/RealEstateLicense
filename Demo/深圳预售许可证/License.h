@@ -17,7 +17,6 @@
 @property (nonatomic, copy) NSString *date;
 @property (nonatomic, copy) NSString *company;
 
-@property (nonatomic, assign) NSUInteger price;
 @property (nonatomic, assign) NSUInteger quantity;
 
 @property (nonatomic, strong) NSMutableArray *buildings;
