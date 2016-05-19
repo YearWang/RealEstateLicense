@@ -53,14 +53,11 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSString *utf8Str = [[NSString alloc] initWithData:gbkData encoding:enc];
     NSData *data = [utf8Str dataUsingEncoding:NSUTF8StringEncoding];
-    //NSLog(@"%@第二次",data);
     
     ONOXMLDocument *doc = [ONOXMLDocument HTMLDocumentWithData:data error:&error];
-    //NSLog(@"%@",doc);
     
-    ONOXMLElement *unitsParentElement = [doc firstChildWithXPath:@"//*[@id='divShowBranch']"]; //寻找该 XPath 代表的 HTML 节点
+    ONOXMLElement *unitsParentElement = [doc firstChildWithXPath:@"//*[@id='divShowBranch']"];
     
-    //遍历其子节点
     [unitsParentElement.children enumerateObjectsUsingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *_Nonnull stop) {
 
         UnitOfThisBuilding *unit = [[UnitOfThisBuilding alloc] init];

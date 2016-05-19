@@ -22,7 +22,6 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
         self.district = [aDecoder decodeObjectForKey:@"District"];
         self.date = [aDecoder decodeObjectForKey:@"Date"];
         self.company = [aDecoder decodeObjectForKey:@"Company"];
-        self.price = [aDecoder decodeIntegerForKey:@"Price"];
         self.quantity = [aDecoder decodeIntegerForKey:@"Quantity"];
         self.buildings = [aDecoder decodeObjectForKey:@"Buildings"];
     }
@@ -35,7 +34,6 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     [aCoder encodeObject:self.district forKey:@"District"];
     [aCoder encodeObject:self.date forKey:@"Date"];
     [aCoder encodeObject:self.company forKey:@"Company"];
-    [aCoder encodeInteger:self.price forKey:@"Price"];
     [aCoder encodeInteger:self.quantity forKey:@"Quantity"];
     [aCoder encodeObject:self.buildings forKey:@"Buildings"];
 }

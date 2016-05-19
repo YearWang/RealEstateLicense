@@ -140,10 +140,7 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
         }
     }
     
-//    NSLog(@"%.2f,%.2f",total,totalGross);
-    
     self.averagePriceOfMainUsage = total/totalGross;
-    //NSLog(@"%.2f",self.averagePriceOfMainUsage);
 }
 
 - (NSMutableArray *)AllKindsOfApartment

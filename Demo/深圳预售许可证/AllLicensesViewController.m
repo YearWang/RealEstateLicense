@@ -29,7 +29,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -49,7 +48,6 @@
     UILabel *districtLabel = (UILabel *)[cell viewWithTag:2];
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:3];
     UILabel *companyLabel = (UILabel *)[cell viewWithTag:4];
-    UILabel *priceLabel = (UILabel *)[cell viewWithTag:5];
     UILabel *quantityLabel = (UILabel *)[cell viewWithTag:6];
     UILabel *numberLabel = (UILabel *)[cell viewWithTag:7];
     
@@ -64,17 +62,11 @@
     
     dateLabel.text = [NSString stringWithFormat:@"批准时间:%@",license.date];
     companyLabel.text = [NSString stringWithFormat:@"开发企业:%@",license.company];
-    priceLabel.text = [NSString stringWithFormat:@"%ld",(unsigned long)license.price];
     quantityLabel.text = [NSString stringWithFormat:@"%ld",(unsigned long)license.quantity];
 
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    License *license = _licenses[indexPath.row];
-//    [self performSegueWithIdentifier:@"ShowBuildingPrice" sender:license];
-//}
 
 #pragma mark - Segue
 

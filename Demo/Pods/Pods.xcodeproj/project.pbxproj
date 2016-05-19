@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1A12AA189073117379914F13CD1D5071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		289DAE0BC5CE4C0CD593C9CBD6995287 /* Ono.h in Headers */ = {isa = PBXBuildFile; fileRef = 069ADDFFA9BD8DF292B3224B3E6C6D6E /* Ono.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		289DAE0BC5CE4C0CD593C9CBD6995287 /* Ono.h in Headers */ = {isa = PBXBuildFile; fileRef = C22F0E19A90B308BED82EBB799B27338 /* Ono.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EDEEEA9E5C2822DAB7B30607E545E19 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
-		83E04C1E7A3DEF6A788914B63307482C /* Ono-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AB7D422E5557F3E8C9440F442ACDB2 /* Ono-dummy.m */; };
+		83E04C1E7A3DEF6A788914B63307482C /* Ono-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CADDA644EFF894AD07AE260F8E3C73 /* Ono-dummy.m */; };
 		9E019ECD3981BBCB1FE655497AC6E279 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		A7C7EED9A09F671998393BD910FED0E0 /* ONOXMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 10574FA457B59AA9A9B977C926C2093D /* ONOXMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C5BB9F710224EE40B3F860DA9B021E4B /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 903591E760E9D97BAFBAEC1B79940DE4 /* ONOXMLDocument.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A7C7EED9A09F671998393BD910FED0E0 /* ONOXMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = C44B54F90BE33461F26A2BD4614439C2 /* ONOXMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5BB9F710224EE40B3F860DA9B021E4B /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBD7C2F0E92DD8ACA00E125A615651E /* ONOXMLDocument.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,24 +27,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		069ADDFFA9BD8DF292B3224B3E6C6D6E /* Ono.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Ono.h; path = Source/Ono.h; sourceTree = "<group>"; };
-		10574FA457B59AA9A9B977C926C2093D /* ONOXMLDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ONOXMLDocument.h; path = Source/ONOXMLDocument.h; sourceTree = "<group>"; };
 		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		2037276CED1DD8C84C23D64FA544EFDA /* Ono-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Ono-prefix.pch"; sourceTree = "<group>"; };
+		22CADDA644EFF894AD07AE260F8E3C73 /* Ono-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Ono-dummy.m"; sourceTree = "<group>"; };
 		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
 		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		54C006E29713654D21633FF0D5F7BED4 /* Ono.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Ono.xcconfig; sourceTree = "<group>"; };
 		634EF794D4841408478FB2D354F0DEDC /* libOno.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOno.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		87AB49D01F7D248E2974FA957B7D621B /* Ono-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Ono-prefix.pch"; sourceTree = "<group>"; };
-		903591E760E9D97BAFBAEC1B79940DE4 /* ONOXMLDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ONOXMLDocument.m; path = Source/ONOXMLDocument.m; sourceTree = "<group>"; };
 		9798357AA8C11E0AE9BC0722BB316168 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
 		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		A65FBADD1C4C872A25FEB0974E945287 /* BmobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobSDK.framework; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F540F2668D9779E2A837EBE952365016 /* Ono.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Ono.xcconfig; sourceTree = "<group>"; };
-		F6AB7D422E5557F3E8C9440F442ACDB2 /* Ono-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Ono-dummy.m"; sourceTree = "<group>"; };
+		C22F0E19A90B308BED82EBB799B27338 /* Ono.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Ono.h; path = Source/Ono.h; sourceTree = "<group>"; };
+		C44B54F90BE33461F26A2BD4614439C2 /* ONOXMLDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ONOXMLDocument.h; path = Source/ONOXMLDocument.h; sourceTree = "<group>"; };
+		DBBD7C2F0E92DD8ACA00E125A615651E /* ONOXMLDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ONOXMLDocument.m; path = Source/ONOXMLDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,29 +74,12 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		0DDDD07802513E7C06A4C3EE6BEA335B /* Pods */ = {
+		7480A2BBDFDCD904B2C600D746E251D5 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				94541674D63C87FC76CAF1FC7C20B028 /* BmobSDK */,
-				A3AB7DE08E49F41C58B939692FDF416B /* Ono */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		34AD431E2A6D5463575E79E69A5F750A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A65FBADD1C4C872A25FEB0974E945287 /* BmobSDK.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		55E99B197D0012BD3B0FC62BEF009844 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F540F2668D9779E2A837EBE952365016 /* Ono.xcconfig */,
-				F6AB7D422E5557F3E8C9440F442ACDB2 /* Ono-dummy.m */,
-				87AB49D01F7D248E2974FA957B7D621B /* Ono-prefix.pch */,
+				54C006E29713654D21633FF0D5F7BED4 /* Ono.xcconfig */,
+				22CADDA644EFF894AD07AE260F8E3C73 /* Ono-dummy.m */,
+				2037276CED1DD8C84C23D64FA544EFDA /* Ono-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Ono";
@@ -108,7 +90,7 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				0DDDD07802513E7C06A4C3EE6BEA335B /* Pods */,
+				8EE27BC9C04EA93AC847FE18200F8D58 /* Pods */,
 				88F83503FB216D8DEDE9E20C10E2675A /* Products */,
 				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
 			);
@@ -123,23 +105,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		94541674D63C87FC76CAF1FC7C20B028 /* BmobSDK */ = {
+		8EE27BC9C04EA93AC847FE18200F8D58 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				34AD431E2A6D5463575E79E69A5F750A /* Frameworks */,
+				DBBB58C238671D6259088ACE64C23F6C /* Ono */,
 			);
-			path = BmobSDK;
-			sourceTree = "<group>";
-		};
-		A3AB7DE08E49F41C58B939692FDF416B /* Ono */ = {
-			isa = PBXGroup;
-			children = (
-				069ADDFFA9BD8DF292B3224B3E6C6D6E /* Ono.h */,
-				10574FA457B59AA9A9B977C926C2093D /* ONOXMLDocument.h */,
-				903591E760E9D97BAFBAEC1B79940DE4 /* ONOXMLDocument.m */,
-				55E99B197D0012BD3B0FC62BEF009844 /* Support Files */,
-			);
-			path = Ono;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
@@ -171,6 +142,17 @@
 				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		DBBB58C238671D6259088ACE64C23F6C /* Ono */ = {
+			isa = PBXGroup;
+			children = (
+				C22F0E19A90B308BED82EBB799B27338 /* Ono.h */,
+				C44B54F90BE33461F26A2BD4614439C2 /* ONOXMLDocument.h */,
+				DBBD7C2F0E92DD8ACA00E125A615651E /* ONOXMLDocument.m */,
+				7480A2BBDFDCD904B2C600D746E251D5 /* Support Files */,
+			);
+			path = Ono;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,7 +336,7 @@
 		};
 		A28D20170ADA5D4E45C444583D1801FC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F540F2668D9779E2A837EBE952365016 /* Ono.xcconfig */;
+			baseConfigurationReference = 54C006E29713654D21633FF0D5F7BED4 /* Ono.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Ono/Ono-prefix.pch";
@@ -372,7 +354,7 @@
 		};
 		C47E0F69DE850CDF8ECA9E92D7927DF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F540F2668D9779E2A837EBE952365016 /* Ono.xcconfig */;
+			baseConfigurationReference = 54C006E29713654D21633FF0D5F7BED4 /* Ono.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Ono/Ono-prefix.pch";

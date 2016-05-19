@@ -64,23 +64,7 @@
             // 给license的licenseDetail属性的各个属性赋值
             originalLicense.licenseDetail = detail;
             originalLicense.quantity = detail.totalNumberOfHouseholds;
-//            
-//            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//                //给license的buildings数组属性添加building类
-//                NSMutableArray *buildings = [originalLicense getWholeBuildings];
-//                
-//                //通知主线程刷新
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    
-//                    originalLicense.buildings = buildings;
-//                 });
-//                
-//            });
-//            
-//            if (n == 2) {
-//                break;
-//            }
-//            n++;
+
         }
     }
 }
