@@ -13,7 +13,7 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
-        self.numberOfTheKind = [aDecoder decodeObjectForKey:@"NumberOfTheKind"];
+        self.numberOfTheKind       = [aDecoder decodeObjectForKey:@"NumberOfTheKind"];
         self.averagePriceOfTheKind = [aDecoder decodeFloatForKey:@"AveragePriceOfTheKind"];
     }
     return self;
@@ -21,7 +21,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.numberOfTheKind forKey:@"NumberOfTheKind"];
+    [aCoder encodeObject:self.numberOfTheKind      forKey:@"NumberOfTheKind"];
     [aCoder encodeFloat:self.averagePriceOfTheKind forKey:@"AveragePriceOfTheKind"];
 }
 

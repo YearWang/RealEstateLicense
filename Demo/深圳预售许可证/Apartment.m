@@ -17,14 +17,14 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 {
     if (self = [super init]) {
         self.apartmentNumberWithSquareMetre = [aDecoder decodeObjectForKey:@"ApartmentNumberWithSquareMetre"];
-        self.apartmentUrl = [aDecoder decodeObjectForKey:@"ApartmentUrl"];
-        self.roomNumber = [aDecoder decodeObjectForKey:@"RoomNumber"];
-        self.kindNumber = [aDecoder decodeObjectForKey:@"KindNumber"];
-        self.floor = [aDecoder decodeObjectForKey:@"Floor"];
-        self.usage = [aDecoder decodeObjectForKey:@"Usage"];
+        self.apartmentUrl   = [aDecoder decodeObjectForKey:@"ApartmentUrl"];
+        self.roomNumber     = [aDecoder decodeObjectForKey:@"RoomNumber"];
+        self.kindNumber     = [aDecoder decodeObjectForKey:@"KindNumber"];
+        self.floor          = [aDecoder decodeObjectForKey:@"Floor"];
+        self.usage          = [aDecoder decodeObjectForKey:@"Usage"];
         self.grossFloorArea = [aDecoder decodeFloatForKey:@"GrossFloorArea"];
-        self.averagePrice = [aDecoder decodeFloatForKey:@"AveragePrice"];
-        self.totalPrice = [aDecoder decodeFloatForKey:@"TotalPrice"];
+        self.averagePrice   = [aDecoder decodeFloatForKey:@"AveragePrice"];
+        self.totalPrice     = [aDecoder decodeFloatForKey:@"TotalPrice"];
         
     }
     return self;
@@ -33,14 +33,14 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.apartmentNumberWithSquareMetre forKey:@"ApartmentNumberWithSquareMetre"];
-    [aCoder encodeObject:self.apartmentUrl forKey:@"ApartmentUrl"];
-    [aCoder encodeObject:self.roomNumber forKey:@"RoomNumber"];
-    [aCoder encodeObject:self.kindNumber forKey:@"KindNumber"];
-    [aCoder encodeObject:self.floor forKey:@"Floor"];
-    [aCoder encodeObject:self.usage forKey:@"Usage"];
+    [aCoder encodeObject:self.apartmentUrl  forKey:@"ApartmentUrl"];
+    [aCoder encodeObject:self.roomNumber    forKey:@"RoomNumber"];
+    [aCoder encodeObject:self.kindNumber    forKey:@"KindNumber"];
+    [aCoder encodeObject:self.floor         forKey:@"Floor"];
+    [aCoder encodeObject:self.usage         forKey:@"Usage"];
     [aCoder encodeFloat:self.grossFloorArea forKey:@"GrossFloorArea"];
-    [aCoder encodeFloat:self.averagePrice forKey:@"AveragePrice"];
-    [aCoder encodeFloat:self.totalPrice forKey:@"TotalPrice"];
+    [aCoder encodeFloat:self.averagePrice   forKey:@"AveragePrice"];
+    [aCoder encodeFloat:self.totalPrice     forKey:@"TotalPrice"];
     
 }
 
@@ -63,11 +63,11 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     NSError *error;
     
     NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-    NSString *utf8Str = [[NSString alloc] initWithData:gbkData encoding:enc];
-    NSData *data = [utf8Str dataUsingEncoding:NSUTF8StringEncoding];
-    ONOXMLDocument *doc = [ONOXMLDocument HTMLDocumentWithData:data error:&error];
+    NSString *utf8Str    = [[NSString alloc] initWithData:gbkData encoding:enc];
+    NSData *data         = [utf8Str dataUsingEncoding:NSUTF8StringEncoding];
+    ONOXMLDocument *doc  = [ONOXMLDocument HTMLDocumentWithData:data error:&error];
     
-    ONOXMLElement *priceElement = [doc firstChildWithXPath:@"//table[@width='98%']/tr[2]/td[4]"];
+    ONOXMLElement *priceElement  = [doc firstChildWithXPath:@"//table[@width='98%']/tr[2]/td[4]"];
     NSString *averagePriceString = [priceElement stringValue];
     averagePriceString = [averagePriceString stringByReplacingOccurrencesOfString:@"[^0-9.]"
                                                                        withString:@""
@@ -81,10 +81,10 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     ONOXMLElement *roomNumberElement = [doc firstChildWithXPath:@"//table[@width='98%']/tr[3]/td[4]"];
     self.roomNumber = [roomNumberElement stringValue];
     
-    NSUInteger length = [self.roomNumber length];
-    NSRange rang = NSMakeRange(length-3, 2);
+    NSUInteger length  = [self.roomNumber length];
+    NSRange rang       = NSMakeRange(length-3, 2);
     NSString * strRang = [self.roomNumber substringWithRange:rang];
-    unichar c=[strRang characterAtIndex:1];
+    unichar c          = [strRang characterAtIndex:1];
 
     if (c >='A' && c <='Z') {
         self.kindNumber = [strRang substringFromIndex:1];

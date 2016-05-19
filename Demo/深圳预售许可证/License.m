@@ -18,24 +18,24 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
-        self.name = [aDecoder decodeObjectForKey:@"Name"];
-        self.district = [aDecoder decodeObjectForKey:@"District"];
-        self.date = [aDecoder decodeObjectForKey:@"Date"];
-        self.company = [aDecoder decodeObjectForKey:@"Company"];
-        self.quantity = [aDecoder decodeIntegerForKey:@"Quantity"];
-        self.buildings = [aDecoder decodeObjectForKey:@"Buildings"];
+        self.name      = [aDecoder decodeObjectForKey: @"Name"];
+        self.district  = [aDecoder decodeObjectForKey: @"District"];
+        self.date      = [aDecoder decodeObjectForKey: @"Date"];
+        self.company   = [aDecoder decodeObjectForKey: @"Company"];
+        self.quantity  = [aDecoder decodeIntegerForKey:@"Quantity"];
+        self.buildings = [aDecoder decodeObjectForKey: @"Buildings"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.name forKey:@"Name"];
-    [aCoder encodeObject:self.district forKey:@"District"];
-    [aCoder encodeObject:self.date forKey:@"Date"];
-    [aCoder encodeObject:self.company forKey:@"Company"];
-    [aCoder encodeInteger:self.quantity forKey:@"Quantity"];
-    [aCoder encodeObject:self.buildings forKey:@"Buildings"];
+    [aCoder encodeObject: self.name      forKey:@"Name"];
+    [aCoder encodeObject: self.district  forKey:@"District"];
+    [aCoder encodeObject: self.date      forKey:@"Date"];
+    [aCoder encodeObject: self.company   forKey:@"Company"];
+    [aCoder encodeInteger:self.quantity  forKey:@"Quantity"];
+    [aCoder encodeObject: self.buildings forKey:@"Buildings"];
 }
 
 
@@ -96,7 +96,6 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     }];
     return array;
 }
-
 
 
 @end

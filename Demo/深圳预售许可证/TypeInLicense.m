@@ -14,8 +14,8 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
-        self.kind = [aDecoder decodeObjectForKey:@"Type"];
-        self.area = [aDecoder decodeObjectForKey:@"Area"];
+        self.kind      = [aDecoder decodeObjectForKey:@"Type"];
+        self.area      = [aDecoder decodeObjectForKey:@"Area"];
         self.household = [aDecoder decodeIntegerForKey:@"Household"];
 
     }
@@ -25,8 +25,8 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.kind forKey:@"Type"];
-    [aCoder encodeObject:self.area forKey:@"Area"];
+    [aCoder encodeObject:self.kind       forKey:@"Type"];
+    [aCoder encodeObject:self.area       forKey:@"Area"];
     [aCoder encodeInteger:self.household forKey:@"Household"];
 }
 

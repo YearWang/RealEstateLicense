@@ -11,8 +11,8 @@
 
 @interface KindsOfApartmentViewController : UITableViewController
 
-- (IBAction)back:(id)sender;
-
 @property (nonatomic, strong) UnitOfThisBuilding *unit;
+
+- (IBAction)back:(id)sender;
 
 @end

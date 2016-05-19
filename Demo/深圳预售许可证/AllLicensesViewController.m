@@ -44,15 +44,15 @@
     
     License *license = self.dataModel.licenses[indexPath.row];
     
-    UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
+    UILabel *nameLabel     = (UILabel *)[cell viewWithTag:1];
     UILabel *districtLabel = (UILabel *)[cell viewWithTag:2];
-    UILabel *dateLabel = (UILabel *)[cell viewWithTag:3];
-    UILabel *companyLabel = (UILabel *)[cell viewWithTag:4];
+    UILabel *dateLabel     = (UILabel *)[cell viewWithTag:3];
+    UILabel *companyLabel  = (UILabel *)[cell viewWithTag:4];
     UILabel *quantityLabel = (UILabel *)[cell viewWithTag:6];
-    UILabel *numberLabel = (UILabel *)[cell viewWithTag:7];
+    UILabel *numberLabel   = (UILabel *)[cell viewWithTag:7];
     
-    numberLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
-    nameLabel.text = license.name;
+    numberLabel.text   = [NSString stringWithFormat:@"%ld",indexPath.row+1];
+    nameLabel.text     = license.name;
     districtLabel.text = [NSString stringWithFormat:@"所在区域:%@",license.district];
     
     //转换日期格式
@@ -60,8 +60,8 @@
 //    [dateFormatter setDateFormat:@"yyyy-mm-dd"];
 //    NSString *dateString = [dateFormatter stringFromDate:license.date];
     
-    dateLabel.text = [NSString stringWithFormat:@"批准时间:%@",license.date];
-    companyLabel.text = [NSString stringWithFormat:@"开发企业:%@",license.company];
+    dateLabel.text     = [NSString stringWithFormat:@"批准时间:%@",license.date];
+    companyLabel.text  = [NSString stringWithFormat:@"开发企业:%@",license.company];
     quantityLabel.text = [NSString stringWithFormat:@"%ld",(unsigned long)license.quantity];
 
     return cell;
@@ -73,11 +73,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ShowBuildingPrice"]) {
+        
         UINavigationController *navigationController = segue.destinationViewController;
         UnitPriceViewController *controller = (UnitPriceViewController *) navigationController.topViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         controller.license = self.dataModel.licenses[indexPath.row];
+        
     }else if ([segue.identifier isEqualToString:@"ShowLicenseDetail"]){
+        
         UINavigationController *navigationController = segue.destinationViewController;
         UnitPriceViewController *controller = (UnitPriceViewController *) navigationController.topViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];

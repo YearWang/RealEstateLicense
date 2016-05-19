@@ -19,25 +19,23 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 {
     if (self = [super init]) {
         self.buildingUnitName = [aDecoder decodeObjectForKey:@"BuildingUnitName"];
-        self.unitUrl = [aDecoder decodeObjectForKey:@"UnitUrl"];
-        self.mainUsage = [aDecoder decodeObjectForKey:@"MainUsage"];
-        self.apartments = [aDecoder decodeObjectForKey:@"Apartments"];
-        self.quantityOfMainUsageApartment = [aDecoder decodeIntegerForKey:@"QuantityOfMainUsageApartment"];
+        self.unitUrl          = [aDecoder decodeObjectForKey:@"UnitUrl"];
+        self.mainUsage        = [aDecoder decodeObjectForKey:@"MainUsage"];
+        self.apartments       = [aDecoder decodeObjectForKey:@"Apartments"];
         self.averagePriceOfMainUsage = [aDecoder decodeFloatForKey:@"AveragePriceOfMainUsage"];
-
+        self.quantityOfMainUsageApartment = [aDecoder decodeIntegerForKey:@"QuantityOfMainUsageApartment"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.buildingUnitName forKey:@"BuildingUnitName"];
-    [aCoder encodeObject:self.unitUrl forKey:@"UnitUrl"];
-    [aCoder encodeObject:self.mainUsage forKey:@"MainUsage"];
-    [aCoder encodeObject:self.apartments forKey:@"Apartments"];
+    [aCoder encodeObject: self.buildingUnitName forKey:@"BuildingUnitName"];
+    [aCoder encodeObject: self.unitUrl          forKey:@"UnitUrl"];
+    [aCoder encodeObject: self.mainUsage        forKey:@"MainUsage"];
+    [aCoder encodeObject: self.apartments       forKey:@"Apartments"];
+    [aCoder encodeFloat:  self.averagePriceOfMainUsage forKey:@"AveragePriceOfMainUsage"];
     [aCoder encodeInteger:self.quantityOfMainUsageApartment forKey:@"QuantityOfMainUsageApartment"];
-    [aCoder encodeFloat:self.averagePriceOfMainUsage forKey:@"AveragePriceOfMainUsage"];
-
 }
 
 - (void)UnitWithHtmlStr:(ONOXMLElement *)element unitNameByAppendingBuildingName:(NSString *)string//给该unit各属性赋值
@@ -57,9 +55,9 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     NSError *error;
     
     NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-    NSString *utf8Str = [[NSString alloc] initWithData:gbkData encoding:enc];
-    NSData *data = [utf8Str dataUsingEncoding:NSUTF8StringEncoding];
-    ONOXMLDocument *doc = [ONOXMLDocument HTMLDocumentWithData:data error:&error];
+    NSString *utf8Str    = [[NSString alloc] initWithData:gbkData encoding:enc];
+    NSData *data         = [utf8Str dataUsingEncoding:NSUTF8StringEncoding];
+    ONOXMLDocument *doc  = [ONOXMLDocument HTMLDocumentWithData:data error:&error];
     
     ONOXMLElement *apartmentParentElement = [doc firstChildWithXPath:@"//div[@id='divShowList']"]; //寻找该 XPath 代表的 HTML 节点
     //遍历其子节点
@@ -73,9 +71,7 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
                 [apartment getApartmentDetail];
                 [array addObject:apartment];
             }
-            
         }];
-        
     }];
     
     NSMutableArray *array1 = [[NSMutableArray alloc] init];//住宅

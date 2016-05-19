@@ -16,10 +16,11 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    if (self = [super init]) {
+    if (self = [super init])
+    {
         self.everyBuildingName = [aDecoder decodeObjectForKey:@"EveryBuildingName"];
-        self.everyBuildingUrl = [aDecoder decodeObjectForKey:@"EveryBuildingUrl"];
-        self.units = [aDecoder decodeObjectForKey:@"Units"];
+        self.everyBuildingUrl  = [aDecoder decodeObjectForKey:@"EveryBuildingUrl"];
+        self.units             = [aDecoder decodeObjectForKey:@"Units"];
     }
     return self;
 }
@@ -27,8 +28,8 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.everyBuildingName forKey:@"EveryBuildingName"];
-    [aCoder encodeObject:self.everyBuildingUrl forKey:@"EveryBuildingUrl"];
-    [aCoder encodeObject:self.units forKey:@"Units"];
+    [aCoder encodeObject:self.everyBuildingUrl  forKey:@"EveryBuildingUrl"];
+    [aCoder encodeObject:self.units             forKey:@"Units"];
 }
 
 
@@ -58,8 +59,8 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     
     ONOXMLElement *unitsParentElement = [doc firstChildWithXPath:@"//*[@id='divShowBranch']"];
     
-    [unitsParentElement.children enumerateObjectsUsingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *_Nonnull stop) {
-
+    [unitsParentElement.children enumerateObjectsUsingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *_Nonnull stop)
+    {
         UnitOfThisBuilding *unit = [[UnitOfThisBuilding alloc] init];
         [unit UnitWithHtmlStr:element unitNameByAppendingBuildingName:self.everyBuildingName];
         [array addObject:unit];
@@ -67,7 +68,8 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     
     [array[0] setUnitUrl:self.everyBuildingUrl];
     
-    for (UnitOfThisBuilding *unit in array) {
+    for (UnitOfThisBuilding *unit in array)
+    {
         unit.apartments = [unit getApartments];
         [unit getAveragePriceOfMainUsage];
         [unit AllKindsOfApartment];

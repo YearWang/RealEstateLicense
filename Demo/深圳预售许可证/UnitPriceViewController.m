@@ -53,7 +53,7 @@
     
     UnitOfThisBuilding *unit = self.license.buildings[indexPath.row];
     
-    UILabel *nameLabel = (UILabel *)[cell viewWithTag:11];
+    UILabel *nameLabel  = (UILabel *)[cell viewWithTag:11];
     UILabel *mainTypeAndHouseholdingsLabel = (UILabel *)[cell viewWithTag:12];
     UILabel *priceLabel = (UILabel *)[cell viewWithTag:13];
     UILabel *floorLabel = (UILabel *)[cell viewWithTag:14];

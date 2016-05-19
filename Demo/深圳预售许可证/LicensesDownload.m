@@ -20,20 +20,14 @@ static NSString *const licenseUrlStr = @"http://ris.szpl.gov.cn/bol/";
     
     NSData *gbkData = [NSData dataWithContentsOfURL:[NSURL URLWithString:licenseUrlStr]];//下载主页网页数据
     NSError *error;
-    //NSLog(@"%@第一次",gbkData);
     
     NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-    NSString *utf8Str = [[NSString alloc] initWithData:gbkData encoding:enc];
-    NSData *data = [utf8Str dataUsingEncoding:NSUTF8StringEncoding];
-    //NSLog(@"%@第二次",data);
+    NSString *utf8Str    = [[NSString alloc] initWithData:gbkData encoding:enc];
+    NSData *data         = [utf8Str dataUsingEncoding:NSUTF8StringEncoding];
+    ONOXMLDocument *doc  = [ONOXMLDocument HTMLDocumentWithData:data error:&error];
     
-    ONOXMLDocument *doc = [ONOXMLDocument HTMLDocumentWithData:data error:&error];
-    //NSLog(@"%@",doc);
+    ONOXMLElement *licenseParentElement = [doc firstChildWithXPath:@"//table[@width='100%']/tr/td/table"];
     
-    ONOXMLElement *licenseParentElement = [doc firstChildWithXPath:@"//table[@width='100%']/tr/td/table"]; //寻找该 XPath 代表的 HTML 节点
-    //SLog(@"%@",licenseParentElement);
-    
-    //遍历其子节点
     [licenseParentElement.children enumerateObjectsUsingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *_Nonnull stop) {
         
         License *license = [[License alloc] init];

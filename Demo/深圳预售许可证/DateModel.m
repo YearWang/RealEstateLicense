@@ -63,7 +63,7 @@
             
             // 给license的licenseDetail属性的各个属性赋值
             originalLicense.licenseDetail = detail;
-            originalLicense.quantity = detail.totalNumberOfHouseholds;
+            originalLicense.quantity      = detail.totalNumberOfHouseholds;
 
         }
     }
